@@ -32,7 +32,7 @@ class FlickrPhoto: NSManagedObject {
             
             // Get the filePath
             let fileName = flickrImageFilePath.lastPathComponent
-            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
             let pathArray = [dirPath, fileName]
             let fileURL = NSURL.fileURLWithPathComponents(pathArray)!
             
@@ -51,7 +51,7 @@ class FlickrPhoto: NSManagedObject {
     init(flickrPhotoURL: String, pin: Pin, context: NSManagedObjectContext) {
         
         //Core Data
-        let entity = NSEntityDescription.entityForName("Photo", inManagedObjectContext: context)!
+        let entity = NSEntityDescription.entityForName("FlickrPhoto", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.flickrPhotoURL = flickrPhotoURL
@@ -62,14 +62,17 @@ class FlickrPhoto: NSManagedObject {
     
     override func prepareForDeletion() {
         
-        //Delete the associated image file when the Photo managed object is deleted
+        //Delete the associated image file when the FlickrPhoto managed object is deleted
         if let fileName = flickrImageFilePath?.lastPathComponent {
             
-            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
             let pathArray = [dirPath, fileName]
             let fileURL = NSURL.fileURLWithPathComponents(pathArray)!
             
-            NSFileManager.defaultManager().removeItemAtURL(fileURL, error: nil)
+            do {
+                try NSFileManager.defaultManager().removeItemAtURL(fileURL)
+            } catch _ {
+            }
         }
     }
 }

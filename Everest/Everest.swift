@@ -70,7 +70,7 @@ class Everest: UIViewController, MKMapViewDelegate {
             //...and use it to initialise a new Pin managed object. Store it for reuse.
         case .Began:
             pinToBeAdded = Pin(coordinate: touchMapPoint, context: sharedContext)
-            mapView.addAnnotation(pinToBeAdded)
+            mapView.addAnnotation(pinToBeAdded!)
             
             //If the user drags the pin around, use KVO to update the location of the pin
             //and the coordinate property of the Pin object.
@@ -116,7 +116,13 @@ class Everest: UIViewController, MKMapViewDelegate {
         
         let error: NSErrorPointer = nil
         let fetchRequest = NSFetchRequest(entityName: "Pin")
-        let results = sharedContext.executeFetchRequest(fetchRequest, error: error)
+        let results: [AnyObject]?
+        do {
+            results = try sharedContext.executeFetchRequest(fetchRequest)
+        } catch let error1 as NSError {
+            error.memory = error1
+            results = nil
+        }
         
         if error != nil {
             alertUserWithTitle("Error",
@@ -229,7 +235,7 @@ class Everest: UIViewController, MKMapViewDelegate {
     
     // MARK: - MKMapViewDelegate
     
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         
         if deleteButton!.title == "Done" {
             
@@ -256,7 +262,7 @@ class Everest: UIViewController, MKMapViewDelegate {
         
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         // Use dequeued pin annotation view if available, otherwise create a new one
         if let annotation = annotation as? Pin {
@@ -282,7 +288,7 @@ class Everest: UIViewController, MKMapViewDelegate {
         return nil
     }
     
-    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+    func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
         // Save the map region as the user moves it around.
         saveMapRegion()
