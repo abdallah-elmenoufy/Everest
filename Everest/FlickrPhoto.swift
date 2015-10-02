@@ -76,3 +76,16 @@ class FlickrPhoto: NSManagedObject {
         }
     }
 }
+
+/* Added extension for String class to get the lastPathComponent as a workaround for non-existance in Swift 2.0
+    Reference are here: https://forums.developer.apple.com/thread/13580 */
+
+extension String {
+    
+    var lastPathComponent: String {
+        
+        get {
+            return (self as NSString).lastPathComponent
+        }
+    }
+}

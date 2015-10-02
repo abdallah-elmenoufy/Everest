@@ -247,17 +247,17 @@ class Everest: UIViewController, MKMapViewDelegate {
             
         } else {
             
-            // Get the new View Controller
-            let photoCVC = self.storyboard?.instantiateViewControllerWithIdentifier("PhotoCollectionViewController") as! PhotoCollectionViewController
-            
-            // And the Pin
-            let pin = view.annotation as! Pin
-            
-            // Pass the pin
-            photoCVC.receivedPin = pin
-            
-            // Then make the segue
-            self.navigationController?.pushViewController(photoCVC, animated: true)
+//            // Get the new View Controller
+//            let photoCVC = self.storyboard?.instantiateViewControllerWithIdentifier("PhotoCollectionViewController") as! PhotoCollectionViewController
+//            
+//            // And the Pin
+//            let pin = view.annotation as! Pin
+//            
+//            // Pass the pin
+//            photoCVC.receivedPin = pin
+//            
+//            // Then make the segue
+//            self.navigationController?.pushViewController(photoCVC, animated: true)
         }
         
     }
