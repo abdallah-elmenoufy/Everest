@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="2487" y="1048"/>
         </scene>
-        <!--Photo Collection View Controller-->
+        <!--flickr Photos-->
         <scene sceneID="XUh-bN-POO">
             <objects>
                 <viewController storyboardIdentifier="PhotoCollectionViewController" id="HGj-bc-pmX" customClass="PhotoCollectionViewController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
@@ -185,6 +185,7 @@
                             <constraint firstItem="yf3-Rg-Qbv" firstAttribute="top" secondItem="BaY-iq-tR8" secondAttribute="bottom" id="zQD-F9-rBq"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="flickr Photos" id="SOs-HH-GV1"/>
                     <connections>
                         <outlet property="collectionView" destination="Wbe-cf-2xt" id="Wbx-lp-WLY"/>
                         <outlet property="mapView" destination="YZp-oy-d39" id="Umf-Yh-ceu"/>
@@ -194,7 +195,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQ8-qZ-Na0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4011" y="1048"/>
+            <point key="canvasLocation" x="4835" y="665"/>
+        </scene>
+        <!--foursquare Venues-->
+        <scene sceneID="YdX-Hm-Zjb">
+            <objects>
+                <tableViewController id="N4D-Fv-YCa" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sru-dO-8Hy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venues" id="x6q-Oe-vXi">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6q-Oe-vXi" id="VD0-C1-sB1">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="N4D-Fv-YCa" id="zHX-3d-K9c"/>
+                            <outlet property="delegate" destination="N4D-Fv-YCa" id="bzg-Pm-Z1e"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="foursquare Venues" id="8dF-Ko-CRA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="40z-UJ-9gZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4835" y="1430"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="xFE-cm-JXP">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2Em-po-cFB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="dj7-Q9-O8a">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="HGj-bc-pmX" kind="relationship" relationship="viewControllers" id="6xU-a5-82A"/>
+                        <segue destination="N4D-Fv-YCa" kind="relationship" relationship="viewControllers" id="QjT-9G-e4l"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lTH-jg-jip" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4001" y="1048"/>
         </scene>
     </scenes>
 </document>
