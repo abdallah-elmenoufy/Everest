@@ -111,7 +111,7 @@ class FlickrClient {
                         
                         let userInfo = [NSLocalizedDescriptionKey: message]
                         
-                        return NSError(domain: "Virtual Tourist Error", code: 1, userInfo: userInfo)
+                        return NSError(domain: "Everest", code: 1, userInfo: userInfo)
                     }
             }
         }

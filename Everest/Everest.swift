@@ -134,23 +134,38 @@ class Everest: UIViewController, MKMapViewDelegate {
     }
     
     
-    // Function to fetchAllPhotos for a selected Pin on the map as soon as the user drops it on the mapView -> "Exceeding Specifications :)"
+    // Function to fetchAllPhotos and fetchAllVenue for a selected Pin on the map as soon as the user drops it on the mapView
     func fetchPhotosForPin(pin: Pin) {
         
+        // Call flickr client
         FlickrClient.sharedInstance.downloadPhotosForPin(pin, completionHandler: {
             success, error in
-            
             if success {
-                
                 // Save the new Photo objects to Core Data
                 dispatch_async(dispatch_get_main_queue(), {
                     CoreDataStackManager.sharedInstance.saveContext()
                 })
             } else {
-                
                 dispatch_async(dispatch_get_main_queue(), {
                     self.alertUserWithTitle("Error",
                         message: "There was an error downloading this Pin's pictures",
+                        retry: true)
+                })
+            }
+        })
+        
+        // And call foursquare client
+        FoursquareClient.sharedInstance.downloadVenuesForPin(pin, completionHandler: {
+            success, error in
+            if success {
+                // Save the new Venue objects to Core Data
+                dispatch_async(dispatch_get_main_queue(), {
+                    CoreDataStackManager.sharedInstance.saveContext()
+                })
+            } else {
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.alertUserWithTitle("Error",
+                        message: "There was an error downloading this Pin's venues",
                         retry: true)
                 })
             }

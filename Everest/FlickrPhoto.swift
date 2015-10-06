@@ -17,21 +17,21 @@ class FlickrPhoto: NSManagedObject {
     //MARK: - Properties
     
     @NSManaged var flickrPhotoURL: String
-    @NSManaged var flickrImageFilePath: String?
+    @NSManaged var flickrPhotoFilePath: String?
     @NSManaged var pin: Pin
     
     var image: UIImage? {
         
-        if let flickrImageFilePath = flickrImageFilePath {
+        if let flickrPhotoFilePath = flickrPhotoFilePath {
             
             // Check to see if there's an error downloading the images for each Pin
-            if flickrImageFilePath == "error" {
+            if flickrPhotoFilePath == "error" {
                 
                 return UIImage(named: "Ooops.jpg")
             }
             
             // Get the filePath
-            let fileName = flickrImageFilePath.lastPathComponent
+            let fileName = flickrPhotoFilePath.lastPathComponent
             let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
             let pathArray = [dirPath, fileName]
             let fileURL = NSURL.fileURLWithPathComponents(pathArray)!
@@ -63,7 +63,7 @@ class FlickrPhoto: NSManagedObject {
     override func prepareForDeletion() {
         
         //Delete the associated image file when the FlickrPhoto managed object is deleted
-        if let fileName = flickrImageFilePath?.lastPathComponent {
+        if let fileName = flickrPhotoFilePath?.lastPathComponent {
             
             let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
             let pathArray = [dirPath, fileName]
@@ -77,7 +77,7 @@ class FlickrPhoto: NSManagedObject {
     }
 }
 
-/* Added extension for String class to get the lastPathComponent as a workaround for non-existance in Swift 2.0
+/* Added extension for String struct to get the lastPathComponent as a workaround for non-existance in Swift 2.0
     Reference are here: https://forums.developer.apple.com/thread/13580 */
 
 extension String {

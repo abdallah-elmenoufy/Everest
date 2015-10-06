@@ -98,7 +98,7 @@ extension FlickrClient {
             // This allows a placeholder image to be displayed instead of a black hole.
             if let error = error {
                 
-                photo.flickrImageFilePath = "error"
+                photo.flickrPhotoFilePath = "error"
                 
                 completionHandler(success: false, error: error)
             } else {
@@ -116,7 +116,7 @@ extension FlickrClient {
                     NSFileManager.defaultManager().createFileAtPath(fileURL.path!, contents: result, attributes: nil)
                     
                     //...then update the Photo managed object with the file path.
-                    photo.flickrImageFilePath = fileURL.path
+                    photo.flickrPhotoFilePath = fileURL.path
                     
                     completionHandler(success: true, error: nil)
                 }

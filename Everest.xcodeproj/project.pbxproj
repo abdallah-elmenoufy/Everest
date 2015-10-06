@@ -25,6 +25,7 @@
 		B200DC941BA625C80084A8F6 /* FoursquareConvenient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200DC931BA625C80084A8F6 /* FoursquareConvenient.swift */; };
 		B2E18C641BBED5EC00842772 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E18C631BBED5EC00842772 /* MapKit.framework */; };
 		B2E18C671BBEDBDF00842772 /* FoursquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E18C661BBEDBDF00842772 /* FoursquareVenue.swift */; settings = {ASSET_TAGS = (); }; };
+		B2E18C6A1BC3D1F800842772 /* FoursquarePhotoForVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E18C691BC3D1F800842772 /* FoursquarePhotoForVenue.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		B200DC931BA625C80084A8F6 /* FoursquareConvenient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareConvenient.swift; sourceTree = "<group>"; };
 		B2E18C631BBED5EC00842772 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B2E18C661BBEDBDF00842772 /* FoursquareVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareVenue.swift; sourceTree = "<group>"; };
+		B2E18C691BC3D1F800842772 /* FoursquarePhotoForVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquarePhotoForVenue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,9 +146,10 @@
 		B200DC821BA61DBF0084A8F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B200DC801BA61D5A0084A8F6 /* Pin.swift */,
 				B200DC851BA620080084A8F6 /* FlickrPhoto.swift */,
 				B2E18C661BBEDBDF00842772 /* FoursquareVenue.swift */,
-				B200DC801BA61D5A0084A8F6 /* Pin.swift */,
+				B2E18C691BC3D1F800842772 /* FoursquarePhotoForVenue.swift */,
 				B200DC7E1BA618AE0084A8F6 /* CoreDataStackManager.swift */,
 				B200DC5D1BA618380084A8F6 /* Everest.xcdatamodeld */,
 			);
@@ -307,6 +310,7 @@
 				B200DC8B1BA623080084A8F6 /* FlickrConstants.swift in Sources */,
 				B200DC861BA620080084A8F6 /* FlickrPhoto.swift in Sources */,
 				B200DC811BA61D5A0084A8F6 /* Pin.swift in Sources */,
+				B2E18C6A1BC3D1F800842772 /* FoursquarePhotoForVenue.swift in Sources */,
 				B200DC941BA625C80084A8F6 /* FoursquareConvenient.swift in Sources */,
 				B200DC8A1BA623080084A8F6 /* FlickrClient.swift in Sources */,
 				B200DC611BA618380084A8F6 /* Everest.swift in Sources */,
