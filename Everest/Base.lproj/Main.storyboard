@@ -80,12 +80,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxZ-CH-p82" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2487" y="1048"/>
+            <point key="canvasLocation" x="2532" y="1048"/>
         </scene>
         <!--flickr Photos-->
         <scene sceneID="XUh-bN-POO">
             <objects>
-                <viewController storyboardIdentifier="PhotoCollectionViewController" id="HGj-bc-pmX" customClass="PhotoCollectionViewController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlickrPhotoCollectionViewController" id="HGj-bc-pmX" customClass="FlickrPhotoCollectionViewController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zht-z5-Jdo"/>
                         <viewControllerLayoutGuide type="bottom" id="yf3-Rg-Qbv"/>
@@ -104,7 +104,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="gN6-yU-gVM" customClass="PhotoCollectionViewCell" customModule="Everest" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="gN6-yU-gVM" customClass="FlickrPhotoCollectionViewCell" customModule="Everest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

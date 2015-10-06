@@ -26,6 +26,8 @@
 		B2E18C641BBED5EC00842772 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E18C631BBED5EC00842772 /* MapKit.framework */; };
 		B2E18C671BBEDBDF00842772 /* FoursquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E18C661BBEDBDF00842772 /* FoursquareVenue.swift */; settings = {ASSET_TAGS = (); }; };
 		B2E18C6A1BC3D1F800842772 /* FoursquarePhotoForVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E18C691BC3D1F800842772 /* FoursquarePhotoForVenue.swift */; settings = {ASSET_TAGS = (); }; };
+		B2E18C6C1BC485E000842772 /* FlickrPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E18C6B1BC485E000842772 /* FlickrPhotoCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		B2E18C6E1BC486CA00842772 /* FlickrPhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E18C6D1BC486CA00842772 /* FlickrPhotoCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		B2E18C631BBED5EC00842772 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B2E18C661BBEDBDF00842772 /* FoursquareVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareVenue.swift; sourceTree = "<group>"; };
 		B2E18C691BC3D1F800842772 /* FoursquarePhotoForVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquarePhotoForVenue.swift; sourceTree = "<group>"; };
+		B2E18C6B1BC485E000842772 /* FlickrPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B2E18C6D1BC486CA00842772 /* FlickrPhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhotoCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 		B200DC831BA61DCD0084A8F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B2E18C6B1BC485E000842772 /* FlickrPhotoCollectionViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				B200DC601BA618380084A8F6 /* Everest.swift */,
+				B2E18C6D1BC486CA00842772 /* FlickrPhotoCollectionViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -307,9 +313,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E18C6C1BC485E000842772 /* FlickrPhotoCollectionViewCell.swift in Sources */,
 				B200DC8B1BA623080084A8F6 /* FlickrConstants.swift in Sources */,
 				B200DC861BA620080084A8F6 /* FlickrPhoto.swift in Sources */,
 				B200DC811BA61D5A0084A8F6 /* Pin.swift in Sources */,
+				B2E18C6E1BC486CA00842772 /* FlickrPhotoCollectionViewController.swift in Sources */,
 				B2E18C6A1BC3D1F800842772 /* FoursquarePhotoForVenue.swift in Sources */,
 				B200DC941BA625C80084A8F6 /* FoursquareConvenient.swift in Sources */,
 				B200DC8A1BA623080084A8F6 /* FlickrClient.swift in Sources */,
