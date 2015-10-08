@@ -378,7 +378,7 @@ extension FlickrPhotoCollectionViewController: NSFetchedResultsControllerDelegat
         updatedIndexPaths  = [NSIndexPath]()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         
         //Add the indexPath of the changed objects to the appropriate array, depending on the type of change
         switch type {
