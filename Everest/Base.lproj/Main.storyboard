@@ -85,7 +85,7 @@
         <!--flickr Photos-->
         <scene sceneID="XUh-bN-POO">
             <objects>
-                <viewController storyboardIdentifier="FlickrPhotoCollectionViewController" id="HGj-bc-pmX" customClass="FlickrPhotoCollectionViewController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlickrPhotoCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HGj-bc-pmX" customClass="FlickrPhotoCollectionViewController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zht-z5-Jdo"/>
                         <viewControllerLayoutGuide type="bottom" id="yf3-Rg-Qbv"/>
