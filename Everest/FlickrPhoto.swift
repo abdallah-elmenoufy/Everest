@@ -16,7 +16,7 @@ class FlickrPhoto: NSManagedObject {
     
     //MARK: - Properties
     
-    @NSManaged var flickrPhotoURL: String
+    @NSManaged var flickrPhotoURL: String?
     @NSManaged var flickrPhotoFilePath: String?
     @NSManaged var pin: Pin
     

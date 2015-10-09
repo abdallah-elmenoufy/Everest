@@ -83,7 +83,8 @@ class Everest: UIViewController, MKMapViewDelegate {
             //photos and finally save it to Core Data.
         case .Ended:
             lastPinDropped = pinToBeAdded
-            fetchPhotosForPin(pinToBeAdded!)
+            print("checkkkkkkk")
+            downloadPhotosForPin(lastPinDropped!)
             CoreDataStackManager.sharedInstance.saveContext()
             
         default:
@@ -134,14 +135,14 @@ class Everest: UIViewController, MKMapViewDelegate {
     }
     
     
-    // Function to fetchAllPhotos and fetchAllVenue for a selected Pin on the map as soon as the user drops it on the mapView
-    func fetchPhotosForPin(pin: Pin) {
+    // Function to fetchAllPhotos for a selected Pin on the map as soon as the user drops it on the mapView
+    func downloadPhotosForPin(pin: Pin) {
         
         // Call flickr client
         FlickrClient.sharedInstance.downloadPhotosForPin(pin, completionHandler: {
             success, error in
             if success {
-                // Save the new Photo objects to Core Data
+                // Save the new FlickrPhoto objects to Core Data
                 dispatch_async(dispatch_get_main_queue(), {
                     CoreDataStackManager.sharedInstance.saveContext()
                 })
@@ -153,8 +154,11 @@ class Everest: UIViewController, MKMapViewDelegate {
                 })
             }
         })
-        
-        // And call foursquare client
+    }
+    
+    // Function to fetchAllVenues for a selected Pin on the map as soon as the user drops it on the mapView
+    func downloadVenuesForPin(pin: Pin) {
+        //  call foursquare client
         FoursquareClient.sharedInstance.downloadVenuesForPin(pin, completionHandler: {
             success, error in
             if success {
@@ -171,8 +175,8 @@ class Everest: UIViewController, MKMapViewDelegate {
             }
         })
     }
-    
-    
+
+
     // Function to create an alert and show it to the user
     func alertUserWithTitle(title: String, message: String, retry: Bool) {
         
@@ -191,7 +195,7 @@ class Everest: UIViewController, MKMapViewDelegate {
                 handler: {
                     action in
                     
-                    self.fetchPhotosForPin(self.lastPinDropped!)
+                    self.downloadPhotosForPin(self.lastPinDropped!)
             })
             alert.addAction(retryAction)
         }
@@ -262,17 +266,17 @@ class Everest: UIViewController, MKMapViewDelegate {
             
         } else {
             
-//            // Get the new View Controller
-//            let photoCVC = self.storyboard?.instantiateViewControllerWithIdentifier("PhotoCollectionViewController") as! PhotoCollectionViewController
-//            
-//            // And the Pin
-//            let pin = view.annotation as! Pin
-//            
-//            // Pass the pin
-//            photoCVC.receivedPin = pin
-//            
-//            // Then make the segue
-//            self.navigationController?.pushViewController(photoCVC, animated: true)
+            // Get the new View Controller
+            let photoCVC = self.storyboard?.instantiateViewControllerWithIdentifier("FlickrPhotoCollectionViewController") as! FlickrPhotoCollectionViewController
+            
+            // And the Pin
+            let pin = view.annotation as! Pin
+            
+            // Pass the pin
+            photoCVC.receivedPin = pin
+            
+            // Then make the segue
+            self.navigationController?.pushViewController(photoCVC, animated: true)
         }
         
     }

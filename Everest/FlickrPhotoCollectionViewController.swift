@@ -68,7 +68,7 @@ class FlickrPhotoCollectionViewController: UIViewController {
     lazy var fetchedResultsController: NSFetchedResultsController = {
         
         //Create fetch request for photos which match the sent Pin.
-        let fetchRequest = NSFetchRequest(entityName: "Photo")
+        let fetchRequest = NSFetchRequest(entityName: "FlickrPhoto")
         fetchRequest.predicate = NSPredicate(format: "pin == %@", self.receivedPin)
         fetchRequest.sortDescriptors = []
         

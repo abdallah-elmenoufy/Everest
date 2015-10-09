@@ -16,8 +16,8 @@ class FoursquarePhotoForVenue: NSManagedObject {
     //MARK: - NSManagedProperties for the Foursquare Photo for each Venue
     
     @NSManaged var resolvablePhotoUrl: String
-    @NSManaged var foursquareVenue: FoursquareVenue
     @NSManaged var resolvablePhotoFilePath: String
+    @NSManaged var foursquareVenue: FoursquareVenue
    
     //MARK: - Initialisers
     

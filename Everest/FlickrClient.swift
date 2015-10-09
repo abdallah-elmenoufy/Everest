@@ -30,8 +30,7 @@ class FlickrClient {
     
     // MARK: - GET method
     
-    func GETMethod(parameters: [String : AnyObject],
-        completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
+    func GETMethod(parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) {
             
             // Build the URL and URL request
             let urlString = Constants.BaseFlickrURL + FlickrClient.escapedParameters(parameters)
@@ -56,8 +55,7 @@ class FlickrClient {
     }
     
     
-    func GETMethodForURLString(urlString: String,
-        completionHandler: (result: NSData?, error: NSError?) -> Void) {
+    func GETMethodForURLString(urlString: String, completionHandler: (result: NSData?, error: NSError?) -> Void) {
             
             // Create the request
             let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)

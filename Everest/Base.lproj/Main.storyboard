@@ -52,6 +52,7 @@
                         <outlet property="longPress" destination="HX1-gx-drv" id="yE6-vi-pq2"/>
                         <outlet property="mapView" destination="rwJ-6g-Rpx" id="6Mr-Iw-c5X"/>
                         <outlet property="tapToDeletePinsLabel" destination="Dvh-NC-4mt" id="D2g-7R-QhD"/>
+                        <segue destination="2Em-po-cFB" kind="show" identifier="TabBar" id="pbW-T9-S68"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4l-4L-Hmg" sceneMemberID="firstResponder"/>
