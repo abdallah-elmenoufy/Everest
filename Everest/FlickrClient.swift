@@ -88,7 +88,7 @@ class FlickrClient {
         for (key, value) in parameters {
             
             let stringValue = "\(value)"
-//          let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
+            //let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
             let replaceSpaceValue = stringValue.stringByReplacingOccurrencesOfString(" ", withString: "+", options: .LiteralSearch, range: nil)
             urlVars += [key + "=" + "\(replaceSpaceValue)"]
         }
@@ -99,16 +99,12 @@ class FlickrClient {
     
     //Check to see if there is a received error, if not, return the original local error.
     class func errorForData(data: NSData?, response: NSURLResponse?, error: NSError) -> NSError {
-        
         if let parsedResult = (try? NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)) as? [String : AnyObject] {
-            
             if let status = parsedResult[JSONResponseKeys.Status]  as? String,
                 message = parsedResult[JSONResponseKeys.Message] as? String {
                     
                     if status == JSONResponseValues.Failure {
-                        
                         let userInfo = [NSLocalizedDescriptionKey: message]
-                        
                         return NSError(domain: "Everest", code: 1, userInfo: userInfo)
                     }
             }
@@ -136,7 +132,4 @@ class FlickrClient {
             completionHandler(result: parsedResult, error: nil)
         }
     }
-
-    
-    
 }

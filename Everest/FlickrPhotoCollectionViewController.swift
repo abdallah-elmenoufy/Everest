@@ -21,11 +21,13 @@ class FlickrPhotoCollectionViewController: UIViewController {
 
     
     //Arrays to keep track of selected or updated collection view cells
-    var selectedIndexes    : [NSIndexPath]!
+    var selectedIndexes    = [NSIndexPath]()
     var insertedIndexPaths : [NSIndexPath]!
     var deletedIndexPaths  : [NSIndexPath]!
     var updatedIndexPaths  : [NSIndexPath]!
     
+    //Pin received from MapViewController
+    var receivedPin: Pin!
     
     @IBAction func newCollectionButtonTapped(sender: UIButton) {
         
@@ -54,10 +56,6 @@ class FlickrPhotoCollectionViewController: UIViewController {
     }
 
     
-
-    //Pin received from MapViewController
-    var receivedPin: Pin!
-    
     //MARK: Core Data convenience
     
     var sharedContext: NSManagedObjectContext {
@@ -66,6 +64,7 @@ class FlickrPhotoCollectionViewController: UIViewController {
 
     // fetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController = {
+      
         
         //Create fetch request for photos which match the sent Pin.
         let fetchRequest = NSFetchRequest(entityName: "FlickrPhoto")
@@ -88,6 +87,12 @@ class FlickrPhotoCollectionViewController: UIViewController {
         
         super.viewDidLoad()
         
+        if receivedPin == nil {
+            print("Pin is not recevied")
+        } else {
+            print("Pin recevied as expected")
+        }
+        
         //Set delegates, datasource for map and collection views and fetched results controller
         mapView.delegate = self
         mapView.userInteractionEnabled = false
@@ -100,14 +105,13 @@ class FlickrPhotoCollectionViewController: UIViewController {
         collectionView.dataSource = self
         
         //Perform initial fetch
-        
         do {
             try fetchedResultsController.performFetch()
-        } catch let error as NSError {
-            alertUserWithTitle("Error",
-                message: "There was an error retreiving saved photos, error is: \(error.localizedDescription)",
-                retry: false)
-        }
+                } catch let error as NSError {
+                    alertUserWithTitle("Error",
+                        message: "There was an error retreiving saved photos, error is: \(error.localizedDescription)",
+                        retry: false)
+            }
         
         //If there are no images associated with the pin, show label to user and disable newCollectionButton
         if fetchedResultsController.fetchedObjects?.count == 0 {
@@ -115,7 +119,9 @@ class FlickrPhotoCollectionViewController: UIViewController {
             noImagesLabel.hidden = false
             newCollectionButton.enabled = false
         }
+        
     }
+    
 
 
     

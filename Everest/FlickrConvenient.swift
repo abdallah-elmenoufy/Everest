@@ -21,10 +21,8 @@ extension FlickrClient {
         var randomPage: Int = 1
         
         if let numberOfPages = pin.numberOfPagesReturned {
-            
             let numberOfPagesAsInt = numberOfPages as Int
              randomPage = Int((arc4random_uniform(UInt32(numberOfPagesAsInt)))) + 1 //Avoids returning 0 as a response.
-            
         }
         
         //Declare parameters for the network call
@@ -46,28 +44,27 @@ extension FlickrClient {
             results, error in
             
             if (error != nil) {
-                
                 completionHandler(success: false, error: error)
             } else {
                 
                 //If we get some photos...
                 if let photosDictionary = results.valueForKey(JSONResponseKeys.Photos) as? [String : AnyObject],
                     photosArray = photosDictionary[JSONResponseKeys.Photo] as? [[String : AnyObject]],
-                    numberOfPhotoPages = photosDictionary[JSONResponseKeys.Pages]     as? Int {
+                    numberOfPhotoPages = photosDictionary[JSONResponseKeys.Pages] as? Int {
                         
                         //...save the number of pages returned to the Pin object...
                         pin.numberOfPagesReturned = numberOfPhotoPages
-                        
+                        print("number of photo pages returned are \(numberOfPhotoPages)")
                         //...extract the photo URL from each photo...
                         for photoDictionary in photosArray {
                             
                             let flickrPhotoURL = photoDictionary[URLValues.MediumPhotoURL] as! String
-                            
+                            print("\(flickrPhotoURL)")
                             //...create a new Photo managed object with it...
-                            let newPhoto = FlickrPhoto(flickrPhotoURL: flickrPhotoURL, pin: pin, context: self.sharedContext)
-                            
+                            let newFlickrPhoto = FlickrPhoto(flikcrPhotoURLString: flickrPhotoURL, pin: pin, context: self.sharedContext)
+                    
                             //...then attempt to get the image from the URL.
-                            self.getImageForPhoto(newPhoto, completionHandler: {
+                            self.getImageForPhoto(newFlickrPhoto, completionHandler: {
                                 success, error in
                                 
                                 //Save the context whatever happens, as errors are handled through the Photo object.
@@ -88,10 +85,10 @@ extension FlickrClient {
     
     func getImageForPhoto(photo: FlickrPhoto, completionHandler: (success: Bool, error: NSError?) -> Void) {
         
-        let imageURLString = photo.flickrPhotoURL
+        let imageURLString = photo.flikcrPhotoURL
         
         //Make a network call with the received photo URL...
-        GETMethodForURLString(imageURLString!, completionHandler: {
+        GETMethodForURLString(imageURLString, completionHandler: {
             result, error in
             
             //...if error happens, save error message to the photo managed object.
@@ -107,7 +104,7 @@ extension FlickrClient {
                 if let result = result {
                     
                     //...make a fileURL for it...
-                    let fileName = imageURLString!.lastPathComponent //Already includes ".jpg" suffix.
+                    let fileName = imageURLString.lastPathComponent //Already includes ".jpg" suffix.
                     let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
                     let pathArray = [dirPath, fileName]
                     let fileURL = NSURL.fileURLWithPathComponents(pathArray)!

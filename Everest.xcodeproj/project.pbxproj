@@ -23,6 +23,7 @@
 		B200DC901BA624C60084A8F6 /* FoursquareClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200DC8F1BA624C60084A8F6 /* FoursquareClient.swift */; };
 		B200DC921BA6255E0084A8F6 /* FoursquareConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200DC911BA6255E0084A8F6 /* FoursquareConstants.swift */; };
 		B200DC941BA625C80084A8F6 /* FoursquareConvenient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B200DC931BA625C80084A8F6 /* FoursquareConvenient.swift */; };
+		B2CA13B11BC951620028D6E1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CA13B01BC951620028D6E1 /* TabBarController.swift */; settings = {ASSET_TAGS = (); }; };
 		B2E18C641BBED5EC00842772 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2E18C631BBED5EC00842772 /* MapKit.framework */; };
 		B2E18C671BBEDBDF00842772 /* FoursquareVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E18C661BBEDBDF00842772 /* FoursquareVenue.swift */; settings = {ASSET_TAGS = (); }; };
 		B2E18C6A1BC3D1F800842772 /* FoursquarePhotoForVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E18C691BC3D1F800842772 /* FoursquarePhotoForVenue.swift */; settings = {ASSET_TAGS = (); }; };
@@ -61,6 +62,7 @@
 		B200DC8F1BA624C60084A8F6 /* FoursquareClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareClient.swift; sourceTree = "<group>"; };
 		B200DC911BA6255E0084A8F6 /* FoursquareConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareConstants.swift; sourceTree = "<group>"; };
 		B200DC931BA625C80084A8F6 /* FoursquareConvenient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareConvenient.swift; sourceTree = "<group>"; };
+		B2CA13B01BC951620028D6E1 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		B2E18C631BBED5EC00842772 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B2E18C661BBEDBDF00842772 /* FoursquareVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquareVenue.swift; sourceTree = "<group>"; };
 		B2E18C691BC3D1F800842772 /* FoursquarePhotoForVenue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoursquarePhotoForVenue.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				B2E18C6B1BC485E000842772 /* FlickrPhotoCollectionViewCell.swift */,
+				B2CA13B01BC951620028D6E1 /* TabBarController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				B200DC811BA61D5A0084A8F6 /* Pin.swift in Sources */,
 				B2E18C6E1BC486CA00842772 /* FlickrPhotoCollectionViewController.swift in Sources */,
 				B2E18C6A1BC3D1F800842772 /* FoursquarePhotoForVenue.swift in Sources */,
+				B2CA13B11BC951620028D6E1 /* TabBarController.swift in Sources */,
 				B200DC941BA625C80084A8F6 /* FoursquareConvenient.swift in Sources */,
 				B200DC8A1BA623080084A8F6 /* FlickrClient.swift in Sources */,
 				B200DC611BA618380084A8F6 /* Everest.swift in Sources */,

@@ -16,7 +16,7 @@ class FlickrPhoto: NSManagedObject {
     
     //MARK: - Properties
     
-    @NSManaged var flickrPhotoURL: String?
+    @NSManaged var flikcrPhotoURL: String
     @NSManaged var flickrPhotoFilePath: String?
     @NSManaged var pin: Pin
     
@@ -24,7 +24,7 @@ class FlickrPhoto: NSManagedObject {
         
         if let flickrPhotoFilePath = flickrPhotoFilePath {
             
-            // Check to see if there's an error downloading the images for each Pin
+            // Check to see if there's an error downloading the photos for each Pin
             if flickrPhotoFilePath == "error" {
                 
                 return UIImage(named: "Ooops.jpg")
@@ -32,7 +32,7 @@ class FlickrPhoto: NSManagedObject {
             
             // Get the filePath
             let fileName = flickrPhotoFilePath.lastPathComponent
-            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
             let pathArray = [dirPath, fileName]
             let fileURL = NSURL.fileURLWithPathComponents(pathArray)!
             
@@ -48,13 +48,13 @@ class FlickrPhoto: NSManagedObject {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(flickrPhotoURL: String, pin: Pin, context: NSManagedObjectContext) {
+    init(flikcrPhotoURLString: String, pin: Pin, context: NSManagedObjectContext) {
         
         //Core Data
         let entity = NSEntityDescription.entityForName("FlickrPhoto", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
-        self.flickrPhotoURL = flickrPhotoURL
+        self.flikcrPhotoURL = flikcrPhotoURLString
         self.pin = pin
     }
     
@@ -62,10 +62,10 @@ class FlickrPhoto: NSManagedObject {
     
     override func prepareForDeletion() {
         
-        //Delete the associated image file when the FlickrPhoto managed object is deleted
+        //Delete the associated image file when the flickrPhoto managed object is deleted
         if let fileName = flickrPhotoFilePath?.lastPathComponent {
             
-            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] 
+            let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
             let pathArray = [dirPath, fileName]
             let fileURL = NSURL.fileURLWithPathComponents(pathArray)!
             
@@ -75,10 +75,11 @@ class FlickrPhoto: NSManagedObject {
             }
         }
     }
+    
 }
 
 /* Added extension for String struct to get the lastPathComponent as a workaround for non-existance in Swift 2.0
-    Reference are here: https://forums.developer.apple.com/thread/13580 */
+Reference are here: https://forums.developer.apple.com/thread/13580 */
 
 extension String {
     
