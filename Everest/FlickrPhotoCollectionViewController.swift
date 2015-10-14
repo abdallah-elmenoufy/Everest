@@ -62,9 +62,9 @@ class FlickrPhotoCollectionViewController: UIViewController {
         return CoreDataStackManager.sharedInstance.managedObjectContext!
     }
 
+    
     // fetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController = {
-      
         
         //Create fetch request for photos which match the sent Pin.
         let fetchRequest = NSFetchRequest(entityName: "FlickrPhoto")
@@ -87,12 +87,6 @@ class FlickrPhotoCollectionViewController: UIViewController {
         
         super.viewDidLoad()
         
-        if receivedPin == nil {
-            print("Pin is not recevied")
-        } else {
-            print("Pin recevied as expected")
-        }
-        
         //Set delegates, datasource for map and collection views and fetched results controller
         mapView.delegate = self
         mapView.userInteractionEnabled = false
@@ -107,11 +101,11 @@ class FlickrPhotoCollectionViewController: UIViewController {
         //Perform initial fetch
         do {
             try fetchedResultsController.performFetch()
-                } catch let error as NSError {
+            } catch let error as NSError {
                     alertUserWithTitle("Error",
                         message: "There was an error retreiving saved photos, error is: \(error.localizedDescription)",
                         retry: false)
-            }
+                }
         
         //If there are no images associated with the pin, show label to user and disable newCollectionButton
         if fetchedResultsController.fetchedObjects?.count == 0 {
@@ -122,9 +116,7 @@ class FlickrPhotoCollectionViewController: UIViewController {
         
     }
     
-
-
-    
+   
     
     //MARK: - Helper functions
     
@@ -148,12 +140,14 @@ class FlickrPhotoCollectionViewController: UIViewController {
     }
     
     
+    // Function to center the mapView on the recevied Pin coordinates
     func centerMapOnPin(pin: Pin) {
         
         //Center the map around the user's pin at a moderate distance.
         let region = MKCoordinateRegionMakeWithDistance(pin.coordinate, 20000, 20000)
         mapView.region = region
     }
+    
     
     func updateNewCollectionButton() {
         
@@ -167,6 +161,7 @@ class FlickrPhotoCollectionViewController: UIViewController {
         }
     }
     
+    
     func retryImageDownloadForPhoto(photo: FlickrPhoto) {
         
         //Get image for photo object, and save the context
@@ -178,6 +173,7 @@ class FlickrPhotoCollectionViewController: UIViewController {
             })
         })
     }
+    
     
     func getNewPhotoSet() {
         
@@ -285,7 +281,7 @@ extension FlickrPhotoCollectionViewController: UICollectionViewDelegate {
         
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! FlickrPhotoCollectionViewCell
         
-        //Disallow selection if the cell is waiting for its image to appear.
+        //Prevent selection if the cell is waiting for its image to appear.
         if cell.activityIndicatorView.isAnimating() {
             
             return false

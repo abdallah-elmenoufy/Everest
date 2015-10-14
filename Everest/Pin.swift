@@ -20,7 +20,7 @@ class Pin: NSManagedObject, MKAnnotation {
     @NSManaged var longitude: Double
     @NSManaged var numberOfPagesReturned: NSNumber?
     @NSManaged var photos: NSMutableOrderedSet
-//    @NSManaged var venues: NSMutableOrderedSet
+    @NSManaged var venues: NSMutableOrderedSet
     
     var coordinate: CLLocationCoordinate2D {
         
@@ -50,7 +50,7 @@ class Pin: NSManagedObject, MKAnnotation {
         self.latitude = coordinate.latitude
         self.longitude = coordinate.longitude
         self.photos = NSMutableOrderedSet()
-//        self.venues = NSMutableOrderedSet()
+        self.venues = NSMutableOrderedSet()
         
     }
     

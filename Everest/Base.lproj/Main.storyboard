@@ -52,7 +52,7 @@
                         <outlet property="longPress" destination="HX1-gx-drv" id="yE6-vi-pq2"/>
                         <outlet property="mapView" destination="rwJ-6g-Rpx" id="6Mr-Iw-c5X"/>
                         <outlet property="tapToDeletePinsLabel" destination="Dvh-NC-4mt" id="D2g-7R-QhD"/>
-                        <segue destination="2Em-po-cFB" kind="show" identifier="ResultsTabBar" id="BM7-Ae-Hrf"/>
+                        <segue destination="2Em-po-cFB" kind="show" identifier="ShowTabBar" id="c2I-qe-jzA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4l-4L-Hmg" sceneMemberID="firstResponder"/>
@@ -62,7 +62,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3299" y="1048"/>
+            <point key="canvasLocation" x="3508.5" y="1048"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rHh-X8-veO">
@@ -81,12 +81,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rxZ-CH-p82" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2532" y="1048"/>
+            <point key="canvasLocation" x="2715" y="1048"/>
         </scene>
         <!--flickr Photos-->
         <scene sceneID="XUh-bN-POO">
             <objects>
-                <viewController storyboardIdentifier="FlickrPhotoCollectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HGj-bc-pmX" customClass="FlickrPhotoCollectionViewController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlickrPhotoCollectionViewController" id="HGj-bc-pmX" customClass="FlickrPhotoCollectionViewController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zht-z5-Jdo"/>
                         <viewControllerLayoutGuide type="bottom" id="yf3-Rg-Qbv"/>
@@ -196,19 +196,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQ8-qZ-Na0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4933.5" y="665"/>
+            <point key="canvasLocation" x="5160" y="665"/>
         </scene>
         <!--foursquare Venues-->
         <scene sceneID="YdX-Hm-Zjb">
             <objects>
-                <tableViewController id="N4D-Fv-YCa" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FoursquareVenuesTableViewController" id="N4D-Fv-YCa" customClass="FoursquareVenuesTableViewController" customModule="Everest" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sru-dO-8Hy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venues" id="x6q-Oe-vXi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoursquareVenuesCell" id="x6q-Oe-vXi">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6q-Oe-vXi" id="VD0-C1-sB1">
@@ -220,20 +220,20 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="N4D-Fv-YCa" id="zHX-3d-K9c"/>
-                            <outlet property="delegate" destination="N4D-Fv-YCa" id="bzg-Pm-Z1e"/>
+                            <outlet property="dataSource" destination="N4D-Fv-YCa" id="yIz-KF-YMc"/>
+                            <outlet property="delegate" destination="N4D-Fv-YCa" id="Oso-3Q-n64"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="foursquare Venues" id="8dF-Ko-CRA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40z-UJ-9gZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4933.5" y="1430"/>
+            <point key="canvasLocation" x="5160" y="1408"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xFE-cm-JXP">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2Em-po-cFB" customClass="TabBarController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2Em-po-cFB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="dj7-Q9-O8a">
                         <autoresizingMask key="autoresizingMask"/>
@@ -247,7 +247,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTH-jg-jip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4099.5" y="1048"/>
+            <point key="canvasLocation" x="4279.5" y="1048"/>
         </scene>
     </scenes>
 </document>

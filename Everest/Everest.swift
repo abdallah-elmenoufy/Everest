@@ -266,10 +266,10 @@ class Everest: UIViewController, MKMapViewDelegate {
             
         } else {
             
-            let tabBar = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarController") as! TabBarController
+            let tabBar = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
             
             // Get the new View Controller
-            let photoCVC = self.storyboard?.instantiateViewControllerWithIdentifier("FlickrPhotoCollectionViewController") as! FlickrPhotoCollectionViewController
+            let photoCVC: FlickrPhotoCollectionViewController = tabBar.viewControllers?.first as! FlickrPhotoCollectionViewController
             
             // And the Pin
             let pin = view.annotation as! Pin
@@ -277,18 +277,12 @@ class Everest: UIViewController, MKMapViewDelegate {
             // Pass the pin
             photoCVC.receivedPin = pin
             
+            // Check if pin is recevied successfully then present the tabBarViewController
             if photoCVC.receivedPin.isEqual(pin) {
             print("Pin is passed successfully")
                 self.presentViewController(tabBar, animated: true, completion: nil)
             }
-            
-//            if photoCVC.receivedPin.isEqual(pin) {
-//            let tabBar = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarController") as! TabBarController
-//            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//            
-//            // Then make the segue
-//            appDelegate.window?.rootViewController = tabBar
-//            }
+
         }
         
     }
