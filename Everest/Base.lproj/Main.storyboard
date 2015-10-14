@@ -95,6 +95,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-iq-tR8">
+                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="X1d-Di-qMm"/>
+                                </constraints>
+                                <state key="normal" title="New Collection">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="newCollectionButtonTapped:" destination="HGj-bc-pmX" eventType="touchUpInside" id="edW-Vf-ZKC"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRg-xK-kny">
+                                <rect key="frame" x="234" y="284" width="133" height="34"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YZp-oy-d39">
+                                <rect key="frame" x="0.0" y="63" width="600" height="150"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Vpk-lD-oh9"/>
+                                </constraints>
+                            </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wbe-cf-2xt">
                                 <rect key="frame" x="0.0" y="213" width="600" height="347"/>
                                 <animations/>
@@ -141,46 +168,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-iq-tR8">
-                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="X1d-Di-qMm"/>
-                                </constraints>
-                                <state key="normal" title="New Collection">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="newCollectionButtonTapped:" destination="HGj-bc-pmX" eventType="touchUpInside" id="edW-Vf-ZKC"/>
-                                </connections>
-                            </button>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Images" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRg-xK-kny">
-                                <rect key="frame" x="234" y="284" width="133" height="34"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YZp-oy-d39">
-                                <rect key="frame" x="0.0" y="63" width="600" height="150"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Vpk-lD-oh9"/>
-                                </constraints>
-                            </mapView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Wbe-cf-2xt" secondAttribute="trailing" constant="-16" id="2pC-sm-ifB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BaY-iq-tR8" secondAttribute="trailing" constant="-16" id="9Fu-W3-B7h"/>
-                            <constraint firstItem="Wbe-cf-2xt" firstAttribute="top" secondItem="YZp-oy-d39" secondAttribute="bottom" id="JfA-iE-HDz"/>
+                            <constraint firstItem="Wbe-cf-2xt" firstAttribute="top" secondItem="YZp-oy-d39" secondAttribute="bottom" id="JfA-iE-HDz">
+                                <variation key="widthClass=compact" constant="3"/>
+                            </constraint>
                             <constraint firstItem="BaY-iq-tR8" firstAttribute="leading" secondItem="evd-fm-w76" secondAttribute="leadingMargin" constant="-16" id="Ram-xK-wPn"/>
                             <constraint firstItem="Wbe-cf-2xt" firstAttribute="leading" secondItem="evd-fm-w76" secondAttribute="leadingMargin" constant="-16" id="S6P-2z-l52"/>
                             <constraint firstItem="YZp-oy-d39" firstAttribute="leading" secondItem="evd-fm-w76" secondAttribute="leadingMargin" constant="-16" id="V8a-XD-Q0e"/>
                             <constraint firstAttribute="centerY" secondItem="dRg-xK-kny" secondAttribute="centerY" id="aFP-SE-C9V"/>
                             <constraint firstItem="BaY-iq-tR8" firstAttribute="top" secondItem="Wbe-cf-2xt" secondAttribute="bottom" id="b3n-2g-Qn2"/>
-                            <constraint firstItem="YZp-oy-d39" firstAttribute="top" secondItem="evd-fm-w76" secondAttribute="topMargin" constant="63" id="dUU-e8-kED"/>
+                            <constraint firstItem="YZp-oy-d39" firstAttribute="top" secondItem="evd-fm-w76" secondAttribute="topMargin" constant="63" id="dUU-e8-kED">
+                                <variation key="widthClass=compact" constant="64"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="YZp-oy-d39" secondAttribute="trailing" constant="-16" id="okS-ZQ-kjv"/>
                             <constraint firstAttribute="centerX" secondItem="dRg-xK-kny" secondAttribute="centerX" id="qfR-0p-yUr"/>
                             <constraint firstItem="yf3-Rg-Qbv" firstAttribute="top" secondItem="BaY-iq-tR8" secondAttribute="bottom" id="zQD-F9-rBq"/>
@@ -201,7 +205,7 @@
         <!--foursquare Venues-->
         <scene sceneID="YdX-Hm-Zjb">
             <objects>
-                <tableViewController storyboardIdentifier="FoursquareVenuesTableViewController" id="N4D-Fv-YCa" customClass="FoursquareVenuesTableViewController" customModule="Everest" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FoursquareVenuesTableViewController" id="N4D-Fv-YCa" customClass="FoursquareVenuesTableViewController" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sru-dO-8Hy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,8 +224,8 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="N4D-Fv-YCa" id="yIz-KF-YMc"/>
-                            <outlet property="delegate" destination="N4D-Fv-YCa" id="Oso-3Q-n64"/>
+                            <outlet property="dataSource" destination="N4D-Fv-YCa" id="yyR-Sd-dBl"/>
+                            <outlet property="delegate" destination="N4D-Fv-YCa" id="UU6-0O-4ew"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="foursquare Venues" id="8dF-Ko-CRA"/>

@@ -83,8 +83,10 @@ class Everest: UIViewController, MKMapViewDelegate {
             //photos and finally save it to Core Data.
         case .Ended:
             lastPinDropped = pinToBeAdded
-            print("checkkkkkkk")
+            // Download Photos from flickr
             downloadPhotosForPin(lastPinDropped!)
+            // And venues from foursquare
+            downloadVenuesForPin(lastPinDropped!)
             CoreDataStackManager.sharedInstance.saveContext()
             
         default:
@@ -268,23 +270,20 @@ class Everest: UIViewController, MKMapViewDelegate {
             
             let tabBar = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
             
-            // Get the new View Controller
-            let photoCVC: FlickrPhotoCollectionViewController = tabBar.viewControllers?.first as! FlickrPhotoCollectionViewController
+            // Get the new View Controllers, flickr and foursquare
+            let photoCVC = tabBar.viewControllers?[0] as! FlickrPhotoCollectionViewController
+            let foursquareTVC = tabBar.viewControllers?[1] as! FoursquareVenuesTableViewController
             
             // And the Pin
             let pin = view.annotation as! Pin
             
-            // Pass the pin
+            // Pass the pin to both tabBarVCs
             photoCVC.receivedPin = pin
+            foursquareTVC.receivedPin = pin
             
-            // Check if pin is recevied successfully then present the tabBarViewController
-            if photoCVC.receivedPin.isEqual(pin) {
-            print("Pin is passed successfully")
-                self.presentViewController(tabBar, animated: true, completion: nil)
-            }
-
+            // then present the tabBarViewController
+            self.presentViewController(tabBar, animated: true, completion: nil)
         }
-        
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {

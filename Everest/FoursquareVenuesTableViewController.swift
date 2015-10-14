@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class FoursquareVenuesTableViewController: NSObject, NSFetchedResultsControllerDelegate  {
+class FoursquareVenuesTableViewController: UITableViewController, NSFetchedResultsControllerDelegate  {
 
     
     //Pin received from MapViewController
@@ -44,11 +44,11 @@ class FoursquareVenuesTableViewController: NSObject, NSFetchedResultsControllerD
     
 }
 
-extension FoursquareVenuesTableViewController: UITableViewDataSource {
+extension FoursquareVenuesTableViewController {
     
     // MARK: - TableView methods
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // Return the number of objects fetched from the NSFetchResultsController
         if let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo? {
@@ -59,7 +59,7 @@ extension FoursquareVenuesTableViewController: UITableViewDataSource {
     }
     
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("FoursquareVenuesCell", forIndexPath: indexPath)
         let venue = fetchedResultsController.objectAtIndexPath(indexPath) as! FoursquareVenue
