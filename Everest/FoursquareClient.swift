@@ -39,7 +39,7 @@ class FoursquareClient {
     
     
     // Function to get the photos URL, as described in here: https://developer.foursquare.com/docs/explore#req=venues/43695300f964a5208c291fe3/photos
-    func buildUrlStringForVenuePhotos(id: Int) -> String {
+    func buildUrlStringForVenuePhotos(id: String) -> String {
         return Constants.BaseFoursquareURL + "venues/\(id)/photos"
     }
     

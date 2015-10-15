@@ -6,13 +6,10 @@
         <relationship name="pin" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="photos" inverseEntity="Pin" syncable="YES"/>
     </entity>
     <entity name="FoursquareVenue" representedClassName="FoursquareVenue" syncable="YES">
-        <attribute name="venueFormattedAddress" attributeType="String" syncable="YES"/>
-        <attribute name="venueId" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="venueLocation" attributeType="String" syncable="YES"/>
+        <attribute name="venueId" attributeType="String" syncable="YES"/>
         <attribute name="venueName" attributeType="String" syncable="YES"/>
         <attribute name="venuePhotoUrlString" attributeType="String" syncable="YES"/>
-        <attribute name="venuePostalCode" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="pin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="venues" inverseEntity="Pin" syncable="YES"/>
+        <relationship name="pin" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="venues" inverseEntity="Pin" syncable="YES"/>
     </entity>
     <entity name="Pin" representedClassName="Pin" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -24,6 +21,6 @@
     <elements>
         <element name="FlickrPhoto" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Pin" positionX="-54" positionY="-9" width="128" height="120"/>
-        <element name="FoursquareVenue" positionX="-63" positionY="27" width="128" height="150"/>
+        <element name="FoursquareVenue" positionX="-63" positionY="27" width="128" height="105"/>
     </elements>
 </model>

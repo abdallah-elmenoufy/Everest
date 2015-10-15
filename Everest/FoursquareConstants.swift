@@ -29,7 +29,7 @@ extension FoursquareClient {
         static let VenueID = "id"
         static let VenueName = "name"
         static let VenueLocation = "location"
-        static let VenueFormattedAddress = "formattedAddress"
+        static let VenueAddress = "address"
         static let PostalCode = "postalCode"
         
     }

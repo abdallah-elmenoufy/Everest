@@ -54,7 +54,7 @@ extension FlickrClient {
                         
                         //...save the number of pages returned to the Pin object...
                         pin.numberOfPagesReturned = numberOfPhotoPages
-                        print("number of photo pages returned are \(numberOfPhotoPages)")
+                        
                         //...extract the photo URL from each photo...
                         for photoDictionary in photosArray {
                             

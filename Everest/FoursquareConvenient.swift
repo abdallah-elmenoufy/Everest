@@ -31,7 +31,7 @@ extension FoursquareClient {
                     } catch let error as NSError {
                         print("There was an error parsing Venues JSON, its: \(error.localizedDescription)")
                         parsedResults = nil
-                }
+                    }
             
             // If we recevied some Venues ...
             if let response = parsedResults?.valueForKey(JSONResponseKeys.Response) as? NSDictionary {
@@ -42,24 +42,24 @@ extension FoursquareClient {
                         
                         // Get the venue name,
                         let venueName = venueDictionary.valueForKey(JSONResponseKeys.VenueName) as? String
+                        print("Venue Name is: \(venueName!)")
                         
-                        // Venue Location
-                        let venueLocation = venueDictionary.valueForKey(JSONResponseKeys.VenueLocation) as? String
-                        
-                        // Venue venueFormattedAddress
-                        let venueFormattedAddress = venueDictionary.valueForKey(JSONResponseKeys.VenueFormattedAddress) as? String
-                        
-                        // and postal code
-                        let venuePostalCode = venueDictionary.valueForKey(JSONResponseKeys.PostalCode) as? Int
+//                        // Venue Location
+//                        let venueLocation = venueDictionary.valueForKey(JSONResponseKeys.VenueLocation) as? NSDictionary
+//                        print("Venue Location is: \(venueLocation!)")
+//                        // Venue venueFormattedAddress
+//                        let venueAddress = venueLocation!.valueForKey(JSONResponseKeys.VenueAddress) as? String
+//                        print("Venue Address is: \(venueAddress!)")
                         
                         // Get the venue Id, to construct the photo url
-                        let venueId = venueDictionary.valueForKey(JSONResponseKeys.VenueID) as? Int
+                        let venueId = venueDictionary.valueForKey(JSONResponseKeys.VenueID) as? String
+                        print("Venue ID is: \(venueId!)")
                         
                         // Construct the Photo URL String
                         let photoUrlString = self.buildUrlStringForVenuePhotos(venueId!)
-                        
+                        print("Photos URL is: \(photoUrlString)")
                         // Create a new Venue managed object
-                        let newVenue = FoursquareVenue(venueName: venueName!, venuePostalCode: venuePostalCode!, venueLocation: venueLocation!, venueFormattedAddress: venueFormattedAddress!, venuePhotoUrlString: photoUrlString, pin: pin, context: self.sharedContext)
+                        let newVenue = FoursquareVenue(venueName: venueName!, venuePhotoUrlString: photoUrlString, pin: pin, context: self.sharedContext)
                         
                         // Then download the photos associated with the constructed url
                         self.downloadPhotosForVenue(newVenue, completionHandler: {
@@ -76,8 +76,7 @@ extension FoursquareClient {
                     
                             completionHandler(success: false, error: NSError(domain: "downloadVenues", code: 0, userInfo: nil))
                         }
-                    }
-                print(parsedResults)
+                }
             }
         }
         // Start the task
