@@ -50,12 +50,18 @@ extension FoursquareVenuesTableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        let sectionInfoVar = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+        
+        if sectionInfoVar.numberOfObjects > 0 {
         // Return the number of objects fetched from the NSFetchResultsController
         if let sectionInfo = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo? {
+            
             return sectionInfo.numberOfObjects
         } else {
-            return 1
+            
+            }
         }
+        return 1
     }
     
     

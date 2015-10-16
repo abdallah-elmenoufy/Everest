@@ -44,13 +44,6 @@ extension FoursquareClient {
                         let venueName = venueDictionary.valueForKey(JSONResponseKeys.VenueName) as? String
                         print("Venue Name is: \(venueName!)")
                         
-//                        // Venue Location
-//                        let venueLocation = venueDictionary.valueForKey(JSONResponseKeys.VenueLocation) as? NSDictionary
-//                        print("Venue Location is: \(venueLocation!)")
-//                        // Venue venueFormattedAddress
-//                        let venueAddress = venueLocation!.valueForKey(JSONResponseKeys.VenueAddress) as? String
-//                        print("Venue Address is: \(venueAddress!)")
-                        
                         // Get the venue Id, to construct the photo url
                         let venueId = venueDictionary.valueForKey(JSONResponseKeys.VenueID) as? String
                         print("Venue ID is: \(venueId!)")
@@ -61,6 +54,8 @@ extension FoursquareClient {
                         // Create a new Venue managed object
                         let newVenue = FoursquareVenue(venueName: venueName!, venuePhotoUrlString: photoUrlString, pin: pin, context: self.sharedContext)
                         
+                        print("PHOTO CONSTRUCTED")
+                        
                         // Then download the photos associated with the constructed url
                         self.downloadPhotosForVenue(newVenue, completionHandler: {
                             success, error in
@@ -68,6 +63,7 @@ extension FoursquareClient {
                             // Save the recevied venues into Core Date
                             dispatch_async(dispatch_get_main_queue(), {
                                 CoreDataStackManager.sharedInstance.saveContext()
+                                print("DONE SAVING")
                                 })
                             })
                         }
@@ -89,6 +85,7 @@ extension FoursquareClient {
         
         // Construct the photo url request and Make the GET request download associated photos to each venue
         let venuePhotoUrlString = newVenue.venuePhotoUrlString
+        print("11111111111")
         let photoUrlRequest = NSURLRequest(URL: NSURL(string: venuePhotoUrlString)!)
         
         let task = session.dataTaskWithRequest(photoUrlRequest) {
@@ -109,6 +106,9 @@ extension FoursquareClient {
                 
                 // If we got some photos, parse the json response
                 if let response = parsedResults?.valueForKey(JSONResponseKeysForPhotos.Response) as? NSDictionary {
+                    
+                    print(response)
+                    
                     if let photos = response.valueForKey(JSONResponseKeysForPhotos.Photos) as? NSDictionary {
                         if let count = photos.valueForKey(JSONResponseKeysForPhotos.Count) as? Int {
                             if count > 0 {
@@ -123,6 +123,8 @@ extension FoursquareClient {
                                     
                                     // Assemble the photo url using the formula described here: https://developer.foursquare.com/docs/responses/photo.html
                                     let resolvablePhotoUrl = self.assembleResolvablePhotoUrl(prefix, suffix: suffix)
+                                    
+                                    print("Resolvable URL is: \(resolvablePhotoUrl)")
                                     
                                     // Construct a new photo managed object
                                     let newPhoto = FoursquarePhotoForVenue(resolvablePhotoUrl: resolvablePhotoUrl, foursquareVenue: newVenue, context: self.sharedContext)

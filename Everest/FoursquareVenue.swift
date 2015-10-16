@@ -17,7 +17,7 @@ class FoursquareVenue: NSManagedObject {
     //MARK: - NSManagedProperties for the Foursquare Venue
     
     @NSManaged var venueName: String
-    @NSManaged var venueId: String
+    @NSManaged var venueId: String?
     @NSManaged var venuePhotoUrlString: String
     @NSManaged var pin: Pin
     @NSManaged var photosForVenues: NSMutableOrderedSet

@@ -11,7 +11,7 @@
         <relationship name="foursquareVenue" maxCount="1" deletionRule="Nullify" destinationEntity="FoursquareVenue" inverseName="photosForVenues" inverseEntity="FoursquareVenue" syncable="YES"/>
     </entity>
     <entity name="FoursquareVenue" representedClassName="FoursquareVenue" syncable="YES">
-        <attribute name="venueId" attributeType="String" syncable="YES"/>
+        <attribute name="venueId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="venueName" attributeType="String" syncable="YES"/>
         <attribute name="venuePhotoUrlString" attributeType="String" syncable="YES"/>
         <relationship name="photosForVenues" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="FoursquarePhotoForVenue" inverseName="foursquareVenue" inverseEntity="FoursquarePhotoForVenue" syncable="YES"/>
@@ -26,8 +26,8 @@
     </entity>
     <elements>
         <element name="FlickrPhoto" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Pin" positionX="-54" positionY="-9" width="128" height="120"/>
-        <element name="FoursquareVenue" positionX="-63" positionY="27" width="128" height="120"/>
         <element name="FoursquarePhotoForVenue" positionX="-45" positionY="54" width="128" height="90"/>
+        <element name="FoursquareVenue" positionX="-63" positionY="27" width="128" height="120"/>
+        <element name="Pin" positionX="-54" positionY="-9" width="128" height="120"/>
     </elements>
 </model>
