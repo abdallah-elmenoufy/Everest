@@ -20,6 +20,7 @@ class FoursquareVenue: NSManagedObject {
     @NSManaged var venueId: String
     @NSManaged var venuePhotoUrlString: String
     @NSManaged var pin: Pin
+    @NSManaged var photosForVenues: NSMutableOrderedSet
     
     
   
@@ -39,6 +40,7 @@ class FoursquareVenue: NSManagedObject {
         self.venueName = venueName
         self.venuePhotoUrlString = venuePhotoUrlString
         self.pin = pin
+        self.photosForVenues = NSMutableOrderedSet()
         
     }
     

@@ -5,10 +5,16 @@
         <attribute name="flikcrPhotoURL" attributeType="String" syncable="YES"/>
         <relationship name="pin" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="photos" inverseEntity="Pin" syncable="YES"/>
     </entity>
+    <entity name="FoursquarePhotoForVenue" syncable="YES">
+        <attribute name="resolvablePhotoFilePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="resolvablePhotoUrl" attributeType="String" syncable="YES"/>
+        <relationship name="foursquareVenue" maxCount="1" deletionRule="Nullify" destinationEntity="FoursquareVenue" inverseName="photosForVenues" inverseEntity="FoursquareVenue" syncable="YES"/>
+    </entity>
     <entity name="FoursquareVenue" representedClassName="FoursquareVenue" syncable="YES">
         <attribute name="venueId" attributeType="String" syncable="YES"/>
         <attribute name="venueName" attributeType="String" syncable="YES"/>
         <attribute name="venuePhotoUrlString" attributeType="String" syncable="YES"/>
+        <relationship name="photosForVenues" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="FoursquarePhotoForVenue" inverseName="foursquareVenue" inverseEntity="FoursquarePhotoForVenue" syncable="YES"/>
         <relationship name="pin" maxCount="1" deletionRule="Nullify" destinationEntity="Pin" inverseName="venues" inverseEntity="Pin" syncable="YES"/>
     </entity>
     <entity name="Pin" representedClassName="Pin" syncable="YES">
@@ -21,6 +27,7 @@
     <elements>
         <element name="FlickrPhoto" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Pin" positionX="-54" positionY="-9" width="128" height="120"/>
-        <element name="FoursquareVenue" positionX="-63" positionY="27" width="128" height="105"/>
+        <element name="FoursquareVenue" positionX="-63" positionY="27" width="128" height="120"/>
+        <element name="FoursquarePhotoForVenue" positionX="-45" positionY="54" width="128" height="90"/>
     </elements>
 </model>

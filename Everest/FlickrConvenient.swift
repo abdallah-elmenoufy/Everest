@@ -59,7 +59,7 @@ extension FlickrClient {
                         for photoDictionary in photosArray {
                             
                             let flickrPhotoURL = photoDictionary[URLValues.MediumPhotoURL] as! String
-                            print("\(flickrPhotoURL)")
+                            
                             //...create a new Photo managed object with it...
                             let newFlickrPhoto = FlickrPhoto(flikcrPhotoURLString: flickrPhotoURL, pin: pin, context: self.sharedContext)
                     
