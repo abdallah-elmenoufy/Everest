@@ -29,8 +29,9 @@ extension FoursquareClient {
         static let VenueID = "id"
         static let VenueName = "name"
         static let VenueLocation = "location"
-        static let VenueAddress = "address"
+        static let VenueCountry = "country"
         static let PostalCode = "postalCode"
+        static let CorssStreet = "crossStreet"
         
     }
     

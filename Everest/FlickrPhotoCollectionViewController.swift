@@ -116,7 +116,20 @@ class FlickrPhotoCollectionViewController: UIViewController {
         
     }
     
-   
+    override func viewDidLayoutSubviews() {
+        
+        //Layout the collectionView cells properly on the View
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 5
+        
+        let width = (floor(self.collectionView.frame.size.width / 3)) - 7
+        layout.itemSize = CGSize(width: width, height: width)
+        collectionView.collectionViewLayout = layout
+    }
+
     
     //MARK: - Helper functions
     

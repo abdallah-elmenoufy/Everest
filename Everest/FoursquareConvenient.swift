@@ -40,6 +40,13 @@ extension FoursquareClient {
                     // Start constructing the Photos URLs
                     for venueDictionary in venues {
                         
+                        // Get the Venue location dictonary to get the venue address
+                        let location = venueDictionary.valueForKey(JSONResponseKeys.VenueLocation) as? NSDictionary
+                        print("Venue Location DIC is: \(location)")
+                        
+                        let venueCountry = location?.valueForKey(JSONResponseKeys.VenueCountry) as? String
+                        print("Venue Address is: \(venueCountry!)")
+                        
                         // Get the venue name,
                         let venueName = venueDictionary.valueForKey(JSONResponseKeys.VenueName) as? String
                         print("Venue Name is: \(venueName!)")
@@ -52,7 +59,7 @@ extension FoursquareClient {
                         let photoUrlString = self.buildUrlStringForVenuePhotos(venueId!)
                         print("Photos URL is: \(photoUrlString)")
                         // Create a new Venue managed object
-                        let newVenue = FoursquareVenue(venueName: venueName!, venuePhotoUrlString: photoUrlString, pin: pin, context: self.sharedContext)
+                        let newVenue = FoursquareVenue(venueName: venueName!, venuePhotoUrlString: photoUrlString, country: venueCountry!, pin: pin, context: self.sharedContext)
                         
                         print("PHOTO CONSTRUCTED")
                         
@@ -85,7 +92,7 @@ extension FoursquareClient {
         
         // Construct the photo url request and Make the GET request download associated photos to each venue
         let venuePhotoUrlString = newVenue.venuePhotoUrlString
-        print("11111111111")
+        print("THE received photo url is: \(venuePhotoUrlString)")
         let photoUrlRequest = NSURLRequest(URL: NSURL(string: venuePhotoUrlString)!)
         
         let task = session.dataTaskWithRequest(photoUrlRequest) {
@@ -107,11 +114,14 @@ extension FoursquareClient {
                 // If we got some photos, parse the json response
                 if let response = parsedResults?.valueForKey(JSONResponseKeysForPhotos.Response) as? NSDictionary {
                     
-                    print(response)
-                    
                     if let photos = response.valueForKey(JSONResponseKeysForPhotos.Photos) as? NSDictionary {
+                        
                         if let count = photos.valueForKey(JSONResponseKeysForPhotos.Count) as? Int {
+                            
                             if count > 0 {
+                                
+                                newVenue.photosCount = count
+                                
                             if let items = photos.valueForKey(JSONResponseKeysForPhotos.Items) as? NSArray {
                                 
                                 /* "items" is the Array that contains all associated photos objects with the selected venue, check here:
@@ -159,6 +169,9 @@ extension FoursquareClient {
     func getTheImageForEachPhoto(newPhoto: FoursquarePhotoForVenue, completionHandler: (success :Bool, error: NSError?) -> Void) {
      
         let resolvablePhotoUrl = newPhoto.resolvablePhotoUrl
+        
+        print("The PASSED RESOLVABLE URL IS: \(resolvablePhotoUrl)")
+        
         let imageForPhotoUrlRequest = NSURLRequest(URL: NSURL(string: resolvablePhotoUrl)!)
         
         let task = session.dataTaskWithRequest(imageForPhotoUrlRequest) {
@@ -182,6 +195,9 @@ extension FoursquareClient {
                     
                     // Then update the FoursquarePhotoForVenue managed object with the file path
                     newPhoto.resolvablePhotoFilePath = fileURL.path!
+                    
+                    print("NEW PHOTO RESOLVABLEFilePath is now set to: \(newPhoto.resolvablePhotoFilePath!)")
+                    
                     completionHandler(success: true, error: nil)
                 }
             }

@@ -282,7 +282,7 @@ class Everest: UIViewController, MKMapViewDelegate {
             foursquareTVC.receivedPin = pin
             
             // then present the tabBarViewController
-            self.presentViewController(tabBar, animated: true, completion: nil)
+            self.navigationController?.pushViewController(tabBar, animated: true)
         }
     }
     

@@ -17,8 +17,9 @@ class FoursquareVenue: NSManagedObject {
     //MARK: - NSManagedProperties for the Foursquare Venue
     
     @NSManaged var venueName: String
-    @NSManaged var venueId: String?
     @NSManaged var venuePhotoUrlString: String
+    @NSManaged var photosCount: NSNumber?
+    @NSManaged var country: String?
     @NSManaged var pin: Pin
     @NSManaged var photosForVenues: NSMutableOrderedSet
     
@@ -31,7 +32,7 @@ class FoursquareVenue: NSManagedObject {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(venueName: String, venuePhotoUrlString: String, pin: Pin, context: NSManagedObjectContext) {
+    init(venueName: String, venuePhotoUrlString: String, country: String, pin: Pin, context: NSManagedObjectContext) {
         
         // Core Data
         let entity = NSEntityDescription.entityForName("FoursquareVenue", inManagedObjectContext: context)!
@@ -39,6 +40,7 @@ class FoursquareVenue: NSManagedObject {
         
         self.venueName = venueName
         self.venuePhotoUrlString = venuePhotoUrlString
+        self.country = country
         self.pin = pin
         self.photosForVenues = NSMutableOrderedSet()
         

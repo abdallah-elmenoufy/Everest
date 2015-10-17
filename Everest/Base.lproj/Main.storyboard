@@ -133,7 +133,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="gN6-yU-gVM" customClass="FlickrPhotoCollectionViewCell" customModule="Everest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -190,7 +190,8 @@
                             <constraint firstItem="yf3-Rg-Qbv" firstAttribute="top" secondItem="BaY-iq-tR8" secondAttribute="bottom" id="zQD-F9-rBq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="flickr Photos" id="SOs-HH-GV1"/>
+                    <tabBarItem key="tabBarItem" title="flickr Photos" id="Rtu-UU-7nl"/>
+                    <navigationItem key="navigationItem" id="4IA-Nj-hLo"/>
                     <connections>
                         <outlet property="collectionView" destination="Wbe-cf-2xt" id="Wbx-lp-WLY"/>
                         <outlet property="mapView" destination="YZp-oy-d39" id="Umf-Yh-ceu"/>
@@ -200,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQ8-qZ-Na0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5160" y="665"/>
+            <point key="canvasLocation" x="5295" y="676"/>
         </scene>
         <!--foursquare Venues-->
         <scene sceneID="YdX-Hm-Zjb">
@@ -212,12 +213,34 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoursquareVenuesCell" id="x6q-Oe-vXi">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoursquareVenuesCell" textLabel="pRx-Vi-Pd5" detailTextLabel="g8D-oT-FSf" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="x6q-Oe-vXi">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6q-Oe-vXi" id="VD0-C1-sB1">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pRx-Vi-Pd5">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g8D-oT-FSf">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
@@ -228,11 +251,12 @@
                             <outlet property="delegate" destination="N4D-Fv-YCa" id="UU6-0O-4ew"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="foursquare Venues" id="8dF-Ko-CRA"/>
+                    <tabBarItem key="tabBarItem" title="foursquare Venues" id="VKu-Sn-ZhK"/>
+                    <navigationItem key="navigationItem" id="Px8-SC-m6R"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40z-UJ-9gZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5160" y="1408"/>
+            <point key="canvasLocation" x="5295" y="1419"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xFE-cm-JXP">
@@ -245,8 +269,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="HGj-bc-pmX" kind="relationship" relationship="viewControllers" id="6xU-a5-82A"/>
-                        <segue destination="N4D-Fv-YCa" kind="relationship" relationship="viewControllers" id="QjT-9G-e4l"/>
+                        <segue destination="HGj-bc-pmX" kind="relationship" relationship="viewControllers" id="FzA-Tc-jtq"/>
+                        <segue destination="N4D-Fv-YCa" kind="relationship" relationship="viewControllers" id="GqZ-oJ-dtR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lTH-jg-jip" userLabel="First Responder" sceneMemberID="firstResponder"/>
