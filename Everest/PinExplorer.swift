@@ -160,11 +160,12 @@ class PinExplorer: UIViewController, MKMapViewDelegate {
     
     // Function to fetchAllVenues for a selected Pin on the map as soon as the user drops it on the mapView
     func downloadVenuesForPin(pin: Pin) {
-        //  call foursquare client
+        
+        // Call foursquare client
         FoursquareClient.sharedInstance.downloadVenuesForPin(pin, completionHandler: {
             success, error in
             if success {
-                // Save the new Venue objects to Core Data
+                // Save the new FoursquareVenue objects to Core Data
                 dispatch_async(dispatch_get_main_queue(), {
                     CoreDataStackManager.sharedInstance.saveContext()
                 })

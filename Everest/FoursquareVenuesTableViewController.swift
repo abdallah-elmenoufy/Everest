@@ -52,6 +52,9 @@ class FoursquareVenuesTableViewController: UITableViewController  {
         
         let error: NSErrorPointer = nil
         let fetchRequest = NSFetchRequest(entityName: "FoursquareVenue")
+        fetchRequest.predicate = NSPredicate(format: "pin == %@", self.receivedPin)
+        fetchRequest.sortDescriptors = []
+
         let results: [AnyObject]?
         do {
             results = try sharedContext.executeFetchRequest(fetchRequest)
