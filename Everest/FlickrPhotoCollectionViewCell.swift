@@ -6,7 +6,6 @@
 //  Copyright © 2015 Abdallah ElMenoufy. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class FlickrPhotoCollectionViewCell: UICollectionViewCell {
