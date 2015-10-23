@@ -51,13 +51,12 @@ class PinExplorer: UIViewController, MKMapViewDelegate {
     }
     
     
-    
     // MARK: - Helper variables and functions
     
     var lastPinDropped: Pin? = nil
     var pinToBeAdded: Pin? = nil
     
-    // Dropping a Pin will convert the tapped point to a coordinate, save it to CoreData and make network call to flickr to get the associated photos with this pin coordinate
+    // Dropping a Pin will convert the tapped point to a coordinate, save it to CoreData and make network calls to both flickr and foursquare to get the associated photos and venues with this pin coordinate
     @IBAction func longPress(gestureRecognizer: UILongPressGestureRecognizer) {
         
         // Extract the tapped point and convert it to a coordinate
@@ -72,8 +71,7 @@ class PinExplorer: UIViewController, MKMapViewDelegate {
             pinToBeAdded = Pin(coordinate: touchMapPoint, context: sharedContext)
             mapView.addAnnotation(pinToBeAdded!)
             
-            //If the user drags the pin around, use KVO to update the location of the pin
-            //and the coordinate property of the Pin object.
+            //If the user drags the pin around, use KVO to update the location of the pin and the coordinate property of the Pin object.
         case .Changed:
             pinToBeAdded!.willChangeValueForKey("coordinate")
             pinToBeAdded!.coordinate = touchMapPoint
@@ -312,6 +310,7 @@ class PinExplorer: UIViewController, MKMapViewDelegate {
         
         return nil
     }
+    
     
     func mapView(mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         
