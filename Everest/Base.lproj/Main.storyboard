@@ -190,7 +190,7 @@
                             <constraint firstItem="yf3-Rg-Qbv" firstAttribute="top" secondItem="BaY-iq-tR8" secondAttribute="bottom" id="zQD-F9-rBq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="flickr Photos" id="Rtu-UU-7nl"/>
+                    <tabBarItem key="tabBarItem" title="flickr Photos" image="pin" id="Rtu-UU-7nl"/>
                     <navigationItem key="navigationItem" id="4IA-Nj-hLo"/>
                     <connections>
                         <outlet property="collectionView" destination="Wbe-cf-2xt" id="Wbx-lp-WLY"/>
@@ -253,7 +253,7 @@
                             <outlet property="delegate" destination="N4D-Fv-YCa" id="UU6-0O-4ew"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="foursquare Venues" id="VKu-Sn-ZhK"/>
+                    <tabBarItem key="tabBarItem" title="foursquare Venues" image="map" id="VKu-Sn-ZhK"/>
                     <navigationItem key="navigationItem" id="Px8-SC-m6R"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40z-UJ-9gZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -280,4 +280,8 @@
             <point key="canvasLocation" x="4279.5" y="1048"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="map" width="32" height="32"/>
+        <image name="pin" width="32" height="32"/>
+    </resources>
 </document>
