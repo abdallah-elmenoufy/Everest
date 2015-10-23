@@ -1,6 +1,6 @@
 //
 //  FoursquareVenuesTableViewController.swift
-//  Everest
+//  Pin Explorer
 //
 //  Created by Abdallah ElMenoufy on 10/14/15.
 //  Copyright © 2015 Abdallah ElMenoufy. All rights reserved.
@@ -22,6 +22,25 @@ class FoursquareVenuesTableViewController: UITableViewController  {
     
     override func viewDidLoad() {
         tableView.reloadData()
+        
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        // Dynamic sizing for the header view
+        if let headerView = tableView.tableHeaderView {
+            let height = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
+            var headerFrame = headerView.frame
+            
+            // If we don't have this check, viewDidLayoutSubviews() will get repeatedly, causing the app to hang.
+            if height != headerFrame.size.height {
+                headerFrame.size.height = height
+                headerView.frame = headerFrame
+                tableView.tableHeaderView = headerView
+            }
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -86,10 +105,6 @@ extension FoursquareVenuesTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("FoursquareVenuesCell", forIndexPath: indexPath)
         let venue = fetchAllVenues()[indexPath.row]
         
-//        var randomPhoto: Int = 1
-//        let photosCountInt = fetchAllVenues()[indexPath.row].photosCount as! Int
-//        randomPhoto = Int((arc4random_uniform(UInt32(photosCountInt)))) + 1
-        
         let imageForVenue = fetchAllPhotosForVenue()[indexPath.row]
         
         cell.textLabel?.text = venue.venueName
@@ -97,7 +112,7 @@ extension FoursquareVenuesTableViewController {
         
         if imageForVenue.image != nil {
             
-            let imageViewSize = CGSize(width: 300, height: 300)
+            let imageViewSize = CGSize(width: 500, height: 500)
             cell.imageView?.sizeThatFits(imageViewSize)
             cell.imageView?.image = imageForVenue.image
         }

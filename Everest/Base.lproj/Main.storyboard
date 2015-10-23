@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Everest-->
+        <!--Pin Explorer-->
         <scene sceneID="FcB-uh-cy2">
             <objects>
-                <viewController id="hsn-lj-RCf" customClass="Everest" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hsn-lj-RCf" customClass="PinExplorer" customModule="Everest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sCF-Rs-X0U"/>
                         <viewControllerLayoutGuide type="bottom" id="Pii-EI-jyv"/>
@@ -47,7 +47,7 @@
                             <constraint firstItem="rwJ-6g-Rpx" firstAttribute="leading" secondItem="Dvh-NC-4mt" secondAttribute="leading" id="w8U-3X-XZP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Everest" id="eME-8Z-Efp"/>
+                    <navigationItem key="navigationItem" title="Pin Explorer" id="eME-8Z-Efp"/>
                     <connections>
                         <outlet property="longPress" destination="HX1-gx-drv" id="yE6-vi-pq2"/>
                         <outlet property="mapView" destination="rwJ-6g-Rpx" id="6Mr-Iw-c5X"/>
@@ -214,13 +214,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoursquareVenuesCell" textLabel="pRx-Vi-Pd5" detailTextLabel="g8D-oT-FSf" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="x6q-Oe-vXi">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6q-Oe-vXi" id="VD0-C1-sB1">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pRx-Vi-Pd5">
+                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -231,6 +232,7 @@
                                             </variation>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g8D-oT-FSf">
+                                            <rect key="frame" x="15" y="25.5" width="59" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>

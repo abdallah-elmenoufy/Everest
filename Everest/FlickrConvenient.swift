@@ -1,6 +1,6 @@
 //
 //  FlickrConvineince.swift
-//  Everest
+//  Pin Explorer
 //
 //  Created by Abdallah ElMenoufy on 9/13/15.
 //  Copyright (c) 2015 Abdallah ElMenoufy. All rights reserved.
@@ -53,14 +53,17 @@ extension FlickrClient {
                     numberOfPhotoPages = photosDictionary[JSONResponseKeys.Pages] as? Int {
                         
                         //...save the number of pages returned to the Pin object...
-                        pin.numberOfPagesReturned = numberOfPhotoPages
                         
+                        self.sharedContext.performBlockAndWait{
+                        pin.numberOfPagesReturned = numberOfPhotoPages
+                        }
                         //...extract the photo URL from each photo...
                         for photoDictionary in photosArray {
                             
                             let flickrPhotoURL = photoDictionary[URLValues.MediumPhotoURL] as! String
                             
                             //...create a new Photo managed object with it...
+                            self.sharedContext.performBlockAndWait {
                             let newFlickrPhoto = FlickrPhoto(flikcrPhotoURLString: flickrPhotoURL, pin: pin, context: self.sharedContext)
                     
                             //...then attempt to get the image from the URL.
@@ -73,6 +76,8 @@ extension FlickrClient {
                                 })
                             })
                         }
+                    }
+                            
                         
                         completionHandler(success: true, error: nil)
                 } else {
@@ -113,8 +118,9 @@ extension FlickrClient {
                     NSFileManager.defaultManager().createFileAtPath(fileURL.path!, contents: result, attributes: nil)
                     
                     //...then update the Photo managed object with the file path.
+                    self.sharedContext.performBlockAndWait{
                     photo.flickrPhotoFilePath = fileURL.path
-                    
+                    }
                     completionHandler(success: true, error: nil)
                 }
             }

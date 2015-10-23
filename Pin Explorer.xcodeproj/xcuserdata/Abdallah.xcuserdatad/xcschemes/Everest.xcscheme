@@ -17,7 +17,7 @@
                BlueprintIdentifier = "B200DC551BA618380084A8F6"
                BuildableName = "Everest.app"
                BlueprintName = "Everest"
-               ReferencedContainer = "container:Everest.xcodeproj">
+               ReferencedContainer = "container:Pin Explorer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -31,7 +31,7 @@
                BlueprintIdentifier = "B200DC6D1BA618380084A8F6"
                BuildableName = "EverestTests.xctest"
                BlueprintName = "EverestTests"
-               ReferencedContainer = "container:Everest.xcodeproj">
+               ReferencedContainer = "container:Pin Explorer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,7 +49,7 @@
                BlueprintIdentifier = "B200DC6D1BA618380084A8F6"
                BuildableName = "EverestTests.xctest"
                BlueprintName = "EverestTests"
-               ReferencedContainer = "container:Everest.xcodeproj">
+               ReferencedContainer = "container:Pin Explorer.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -59,7 +59,7 @@
             BlueprintIdentifier = "B200DC551BA618380084A8F6"
             BuildableName = "Everest.app"
             BlueprintName = "Everest"
-            ReferencedContainer = "container:Everest.xcodeproj">
+            ReferencedContainer = "container:Pin Explorer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,7 +82,7 @@
             BlueprintIdentifier = "B200DC551BA618380084A8F6"
             BuildableName = "Everest.app"
             BlueprintName = "Everest"
-            ReferencedContainer = "container:Everest.xcodeproj">
+            ReferencedContainer = "container:Pin Explorer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -101,7 +101,7 @@
             BlueprintIdentifier = "B200DC551BA618380084A8F6"
             BuildableName = "Everest.app"
             BlueprintName = "Everest"
-            ReferencedContainer = "container:Everest.xcodeproj">
+            ReferencedContainer = "container:Pin Explorer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

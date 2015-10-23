@@ -1,6 +1,6 @@
 //
 //  FoursquareClient.swift
-//  Everest
+//  Pin Explorer
 //
 //  Created by Abdallah ElMenoufy on 9/13/15.
 //  Copyright (c) 2015 Abdallah ElMenoufy. All rights reserved.
@@ -26,8 +26,6 @@ class FoursquareClient {
         
         session = NSURLSession.sharedSession()
     }
-  
-    
     
     
     // MARK: - Helper functions
@@ -37,12 +35,7 @@ class FoursquareClient {
         return NSURLRequest(URL: NSURL(string: Constants.BaseFoursquareURL + Methods.Search + "?ll=\(pin.coordinate.latitude),\(pin.coordinate.longitude)&client_id=\(Constants.FoursquareClientID)&client_secret=\(Constants.FoursquareClientSecret)&v=\(self.todaysDate())")!)
     }
     
-    
-    /*
-    https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=CLIENT_ID&client_secret=CLIENT_SECRET&v=YYYYMMDD
-    */
-    
-    
+
     // Function to get the photos URL, as described in here: https://developer.foursquare.com/docs/explore#req=venues/43695300f964a5208c291fe3/photos
     func buildUrlStringForVenuePhotos(id: String) -> String {
         return Constants.BaseFoursquareURL + "venues/\(id)/photos?&client_id=\(Constants.FoursquareClientID)&client_secret=\(Constants.FoursquareClientSecret)&v=\(self.todaysDate())"
@@ -51,7 +44,7 @@ class FoursquareClient {
     
     // Function to assemble a resolvable photo URL using its original photo size, https://developer.foursquare.com/docs/responses/photo.html
     func assembleResolvablePhotoUrl(prefix: String, suffix: String) -> String {
-        return prefix + "original" + suffix
+        return prefix + "500x500" + suffix
     }
     
     

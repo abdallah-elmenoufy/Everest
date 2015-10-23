@@ -1,6 +1,6 @@
 //
 //  FlickrClient.swift
-//  Everest
+//  Pin Explorer
 //
 //  Created by Abdallah ElMenoufy on 9/13/15.
 //  Copyright (c) 2015 Abdallah ElMenoufy. All rights reserved.
@@ -105,7 +105,7 @@ class FlickrClient {
                     
                     if status == JSONResponseValues.Failure {
                         let userInfo = [NSLocalizedDescriptionKey: message]
-                        return NSError(domain: "Everest", code: 1, userInfo: userInfo)
+                        return NSError(domain: "Pin_Explorer", code: 1, userInfo: userInfo)
                     }
             }
         }

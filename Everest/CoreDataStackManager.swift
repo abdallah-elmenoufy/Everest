@@ -1,6 +1,6 @@
 //
 //  CoreDataStackManager.swift
-//  Everest
+//  Pin Explorer
 //
 //  Created by Abdallah ElMenoufy on 9/13/15.
 //  Copyright (c) 2015 Abdallah ElMenoufy. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-private let SQLITE_FILE_NAME = "Everest.sqlite"
+private let SQLITE_FILE_NAME = "Pin_Explorer.sqlite"
 
 class CoreDataStackManager {
     
@@ -72,7 +72,8 @@ class CoreDataStackManager {
         if coordinator == nil {
             return nil
         }
-        var managedObjectContext = NSManagedObjectContext()
+        // var managedObjectContext = NSManagedObjectContext()
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
         }()
@@ -85,8 +86,6 @@ class CoreDataStackManager {
             if moc.hasChanges {
                 do {
                     try moc.save()
-                    print("context saved successfully")
-                    
                 } catch let error as NSError {
                     // Replace this implementation with code to handle the error appropriately.
                     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.

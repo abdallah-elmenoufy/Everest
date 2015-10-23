@@ -1,6 +1,6 @@
 //
-//  Everest.swift
-//  Everest
+//  PinExplorer.swift
+//  PinExplorer
 //
 //  Created by Abdallah ElMenoufy on 9/13/15.
 //  Copyright (c) 2015 Abdallah ElMenoufy. All rights reserved.
@@ -10,8 +10,8 @@ import UIKit
 import MapKit
 import CoreData
 
-class Everest: UIViewController, MKMapViewDelegate {
-
+class PinExplorer: UIViewController, MKMapViewDelegate {
+    
     // MARK: - Outlets
     
     @IBOutlet weak var mapView: MKMapView!
@@ -25,7 +25,7 @@ class Everest: UIViewController, MKMapViewDelegate {
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext!
     }
-
+    
     // MARK: - App views' life cycle
     
     override func viewDidLoad() {
@@ -47,10 +47,10 @@ class Everest: UIViewController, MKMapViewDelegate {
         
         // Load the map to the last location before app-termination
         loadMapRegion()
-
+        
     }
-
-
+    
+    
     
     // MARK: - Helper variables and functions
     
@@ -94,7 +94,7 @@ class Everest: UIViewController, MKMapViewDelegate {
         }
     }
     
-
+    
     // Function to process the Edit/Done button related actions when tapped to delete Pins
     func editButtonTapped() {
         
@@ -177,8 +177,8 @@ class Everest: UIViewController, MKMapViewDelegate {
             }
         })
     }
-
-
+    
+    
     // Function to create an alert and show it to the user
     func alertUserWithTitle(title: String, message: String, retry: Bool) {
         
@@ -207,7 +207,7 @@ class Everest: UIViewController, MKMapViewDelegate {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-// ==================================================================================================
+    // ==================================================================================================
     
     // MARK: - NSUserDefaults Constants, and methods
     
@@ -251,8 +251,8 @@ class Everest: UIViewController, MKMapViewDelegate {
             mapView.region = region
         }
     }
-
-// ==================================================================================================
+    
+    // ==================================================================================================
     
     // MARK: - MKMapViewDelegate
     
@@ -281,7 +281,7 @@ class Everest: UIViewController, MKMapViewDelegate {
             photoCVC.receivedPin = pin
             foursquareTVC.receivedPin = pin
             
-            // then present the tabBarViewController
+            // then push the tabBarViewController
             self.navigationController?.pushViewController(tabBar, animated: true)
         }
     }
@@ -317,6 +317,6 @@ class Everest: UIViewController, MKMapViewDelegate {
         // Save the map region as the user moves it around.
         saveMapRegion()
     }
-
+    
 }
 
