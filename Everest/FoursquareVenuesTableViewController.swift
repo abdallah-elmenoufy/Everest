@@ -22,32 +22,15 @@ class FoursquareVenuesTableViewController: UITableViewController  {
     
     override func viewDidLoad() {
         tableView.reloadData()
-        
+        self.navigationController?.navigationBar.translucent = false
     }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        // Dynamic sizing for the header view
-        if let headerView = tableView.tableHeaderView {
-            let height = headerView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-            var headerFrame = headerView.frame
-            
-            // If we don't have this check, viewDidLayoutSubviews() will get repeatedly, causing the app to hang.
-            if height != headerFrame.size.height {
-                headerFrame.size.height = height
-                headerView.frame = headerFrame
-                tableView.tableHeaderView = headerView
-            }
-        }
-    }
-    
+
+    // Reload tableView once view is appeared
     override func viewWillAppear(animated: Bool) {
         tableView.reloadData()
     }
     
-    // Function to fetchAllVenues from CoreData
+    // Function to fetchAllVenues from CoreData, that matches the received Pin
     func fetchAllVenues() -> [FoursquareVenue] {
         
         let error: NSErrorPointer = nil

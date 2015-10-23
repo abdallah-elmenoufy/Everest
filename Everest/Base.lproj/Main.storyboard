@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="580" width="600" height="20"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.10030140429999999" blue="0.1658593582" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -39,9 +39,13 @@
                         <constraints>
                             <constraint firstItem="rwJ-6g-Rpx" firstAttribute="trailing" secondItem="Dvh-NC-4mt" secondAttribute="trailing" id="6WI-hb-kHU"/>
                             <constraint firstItem="rwJ-6g-Rpx" firstAttribute="top" secondItem="sCF-Rs-X0U" secondAttribute="bottom" id="8ex-1g-JHC"/>
-                            <constraint firstItem="Dvh-NC-4mt" firstAttribute="top" secondItem="sCF-Rs-X0U" secondAttribute="bottom" constant="516" id="9HU-Z6-bye"/>
+                            <constraint firstItem="Dvh-NC-4mt" firstAttribute="top" secondItem="sCF-Rs-X0U" secondAttribute="bottom" constant="516" id="9HU-Z6-bye">
+                                <variation key="widthClass=compact" constant="516"/>
+                            </constraint>
                             <constraint firstItem="Dvh-NC-4mt" firstAttribute="leading" secondItem="vUi-ra-Klq" secondAttribute="leading" id="Lc2-Oo-b5g"/>
-                            <constraint firstItem="Dvh-NC-4mt" firstAttribute="bottom" secondItem="Pii-EI-jyv" secondAttribute="top" id="SHy-Um-BbK"/>
+                            <constraint firstItem="Dvh-NC-4mt" firstAttribute="bottom" secondItem="Pii-EI-jyv" secondAttribute="top" id="SHy-Um-BbK">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="Dvh-NC-4mt" secondAttribute="trailing" id="jfA-EN-UIa"/>
                             <constraint firstItem="rwJ-6g-Rpx" firstAttribute="bottom" secondItem="Pii-EI-jyv" secondAttribute="top" id="lbc-lZ-bU1"/>
                             <constraint firstItem="rwJ-6g-Rpx" firstAttribute="leading" secondItem="Dvh-NC-4mt" secondAttribute="leading" id="w8U-3X-XZP"/>
