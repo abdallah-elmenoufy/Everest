@@ -1,7 +1,7 @@
-# Everest
+# Pin Explorer
 5th "The Capstone" Project of my Udacity iOS Developer Nanodegree
 
-Everest is iOS app that allows a user to explore the world through both flickr and foursquare services, where user drops a pin on the initial view map, instantly allows a two background APIs calls to each of; flickr API to get the associated photos with the dropped pin's coordinates using its latitude and longitude as parameters, and to foursquare API to search/explore the near venues to this pin using its coordinates as well.
+Pin Explorer is iOS app that allows a user to explore the world through both flickr and foursquare services, where user drops a pin on the initial map view, instantly allows a two background APIs calls to each of; flickr API to get the associated photos with the dropped pin's coordinates using its latitude and longitude as parameters, and to foursquare API to search for the nearest venues to this pin using its coordinates as well.
 
 Flickr photos and Foursquare venues are displayed in Collection View/Table View controllers.
 
