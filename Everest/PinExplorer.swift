@@ -49,7 +49,8 @@ class PinExplorer: UIViewController, MKMapViewDelegate {
         // Load the map to the last location before app-termination
         loadMapRegion()
         
-        // Function to extract the date from datePicker which will be used in building the foursquare venue search Url
+        /* Function to extract the date from datePicker which will be used in building the foursquare venue search Url
+        https://developer.foursquare.com/overview/versioning */
         datePicker.addTarget(self, action: Selector("dataPickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
         
     }
