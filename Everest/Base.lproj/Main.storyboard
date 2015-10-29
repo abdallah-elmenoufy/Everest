@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rwJ-6g-Rpx">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
-                                <animations/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="HX1-gx-drv" appends="YES" id="Lin-7g-ff6"/>
-                                </connections>
-                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the Pins to Delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dvh-NC-4mt">
                                 <rect key="frame" x="0.0" y="580" width="600" height="20"/>
                                 <animations/>
@@ -33,26 +26,104 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="8z7-Zk-9qd">
+                                <rect key="frame" x="-160" y="-108" width="320" height="216"/>
+                                <animations/>
+                                <date key="date" timeIntervalSinceReferenceDate="467810655.00326502">
+                                    <!--2015-10-29 11:24:15 +0000-->
+                                </date>
+                            </datePicker>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rwJ-6g-Rpx">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <animations/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HX1-gx-drv" appends="YES" id="Lin-7g-ff6"/>
+                                </connections>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a date, then drop a Pin:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXJ-Mn-5Fe">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="iCx-c5-Q4n">
+                                        <variation key="widthClass=compact" constant="122"/>
+                                    </constraint>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="iCx-c5-Q4n"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="iCx-c5-Q4n"/>
+                                    </mask>
+                                </variation>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rwJ-6g-Rpx" firstAttribute="trailing" secondItem="Dvh-NC-4mt" secondAttribute="trailing" id="6WI-hb-kHU"/>
-                            <constraint firstItem="rwJ-6g-Rpx" firstAttribute="top" secondItem="sCF-Rs-X0U" secondAttribute="bottom" id="8ex-1g-JHC"/>
+                            <constraint firstItem="rwJ-6g-Rpx" firstAttribute="top" secondItem="sCF-Rs-X0U" secondAttribute="bottom" id="8ex-1g-JHC">
+                                <variation key="widthClass=compact" constant="45"/>
+                            </constraint>
                             <constraint firstItem="Dvh-NC-4mt" firstAttribute="top" secondItem="sCF-Rs-X0U" secondAttribute="bottom" constant="516" id="9HU-Z6-bye">
                                 <variation key="widthClass=compact" constant="516"/>
                             </constraint>
+                            <constraint firstItem="rwJ-6g-Rpx" firstAttribute="top" secondItem="8z7-Zk-9qd" secondAttribute="bottom" id="Exr-TM-BKa"/>
+                            <constraint firstItem="hXJ-Mn-5Fe" firstAttribute="bottom" secondItem="8z7-Zk-9qd" secondAttribute="bottom" id="Kdb-jw-BwT"/>
+                            <constraint firstItem="hXJ-Mn-5Fe" firstAttribute="top" secondItem="8z7-Zk-9qd" secondAttribute="top" id="L0j-qP-ZRK"/>
                             <constraint firstItem="Dvh-NC-4mt" firstAttribute="leading" secondItem="vUi-ra-Klq" secondAttribute="leading" id="Lc2-Oo-b5g"/>
+                            <constraint firstItem="hXJ-Mn-5Fe" firstAttribute="leading" secondItem="Dvh-NC-4mt" secondAttribute="leading" id="Rez-FL-f4V"/>
                             <constraint firstItem="Dvh-NC-4mt" firstAttribute="bottom" secondItem="Pii-EI-jyv" secondAttribute="top" id="SHy-Um-BbK">
                                 <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="8z7-Zk-9qd" firstAttribute="top" secondItem="sCF-Rs-X0U" secondAttribute="bottom" id="guA-Gx-haW"/>
                             <constraint firstAttribute="trailing" secondItem="Dvh-NC-4mt" secondAttribute="trailing" id="jfA-EN-UIa"/>
                             <constraint firstItem="rwJ-6g-Rpx" firstAttribute="bottom" secondItem="Pii-EI-jyv" secondAttribute="top" id="lbc-lZ-bU1"/>
+                            <constraint firstItem="8z7-Zk-9qd" firstAttribute="trailing" secondItem="rwJ-6g-Rpx" secondAttribute="trailing" id="nU1-g4-NAY"/>
+                            <constraint firstItem="8z7-Zk-9qd" firstAttribute="leading" secondItem="Dvh-NC-4mt" secondAttribute="leading" id="pdi-Kh-Ok4">
+                                <variation key="widthClass=compact" constant="121"/>
+                            </constraint>
                             <constraint firstItem="rwJ-6g-Rpx" firstAttribute="leading" secondItem="Dvh-NC-4mt" secondAttribute="leading" id="w8U-3X-XZP"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="8z7-Zk-9qd"/>
+                                <exclude reference="hXJ-Mn-5Fe"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Kdb-jw-BwT"/>
+                                <exclude reference="L0j-qP-ZRK"/>
+                                <exclude reference="Rez-FL-f4V"/>
+                                <exclude reference="guA-Gx-haW"/>
+                                <exclude reference="nU1-g4-NAY"/>
+                                <exclude reference="pdi-Kh-Ok4"/>
+                                <exclude reference="Exr-TM-BKa"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="8z7-Zk-9qd"/>
+                                <include reference="hXJ-Mn-5Fe"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Kdb-jw-BwT"/>
+                                <include reference="L0j-qP-ZRK"/>
+                                <include reference="Rez-FL-f4V"/>
+                                <include reference="guA-Gx-haW"/>
+                                <include reference="nU1-g4-NAY"/>
+                                <include reference="pdi-Kh-Ok4"/>
+                                <include reference="Exr-TM-BKa"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Pin Explorer" id="eME-8Z-Efp"/>
                     <connections>
+                        <outlet property="datePicker" destination="8z7-Zk-9qd" id="AUw-YQ-Osg"/>
                         <outlet property="longPress" destination="HX1-gx-drv" id="yE6-vi-pq2"/>
                         <outlet property="mapView" destination="rwJ-6g-Rpx" id="6Mr-Iw-c5X"/>
                         <outlet property="tapToDeletePinsLabel" destination="Dvh-NC-4mt" id="D2g-7R-QhD"/>

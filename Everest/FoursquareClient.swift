@@ -27,18 +27,36 @@ class FoursquareClient {
         session = NSURLSession.sharedSession()
     }
     
+    // The date user selected to search foursquare at
+    var dateToSearch: String?
     
     // MARK: - Helper functions
     
     // Function to build the called URL from its parameters as requested into foursquare docs
     func buildRequestForVenueLocation(pin: Pin) -> NSURLRequest {
+        
+        if dateToSearch == nil {
+        
         return NSURLRequest(URL: NSURL(string: Constants.BaseFoursquareURL + Methods.Search + "?ll=\(pin.coordinate.latitude),\(pin.coordinate.longitude)&client_id=\(Constants.FoursquareClientID)&client_secret=\(Constants.FoursquareClientSecret)&v=\(self.todaysDate())")!)
+            
+        } else {
+            
+           return NSURLRequest(URL: NSURL(string: Constants.BaseFoursquareURL + Methods.Search + "?ll=\(pin.coordinate.latitude),\(pin.coordinate.longitude)&client_id=\(Constants.FoursquareClientID)&client_secret=\(Constants.FoursquareClientSecret)&v=\(dateToSearch!)")!)
+        }
     }
     
 
     // Function to get the photos URL, as described in here: https://developer.foursquare.com/docs/explore#req=venues/43695300f964a5208c291fe3/photos
     func buildUrlStringForVenuePhotos(id: String) -> String {
+        
+        if dateToSearch == nil {
+        
         return Constants.BaseFoursquareURL + "venues/\(id)/photos?&client_id=\(Constants.FoursquareClientID)&client_secret=\(Constants.FoursquareClientSecret)&v=\(self.todaysDate())"
+            
+        } else {
+            
+            return Constants.BaseFoursquareURL + "venues/\(id)/photos?&client_id=\(Constants.FoursquareClientID)&client_secret=\(Constants.FoursquareClientSecret)&v=\(dateToSearch!)"
+        }
     }
     
     
