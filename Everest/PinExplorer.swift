@@ -17,7 +17,7 @@ class PinExplorer: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tapToDeletePinsLabel: UILabel!
     @IBOutlet var longPress: UILongPressGestureRecognizer!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    
     
     
     var deleteButton: UIBarButtonItem?
@@ -49,23 +49,10 @@ class PinExplorer: UIViewController, MKMapViewDelegate {
         // Load the map to the last location before app-termination
         loadMapRegion()
         
-        /* Function to extract the date from datePicker which will be used in building the foursquare venue search Url
-        https://developer.foursquare.com/overview/versioning */
-        datePicker.addTarget(self, action: Selector("dataPickerChanged:"), forControlEvents: UIControlEvents.ValueChanged)
-        
     }
     
     
     // MARK: - Helper variables and functions
-    
-    // Get the date from datePicker and send it to Foursquare Client
-    func dataPickerChanged(datePicker: UIDatePicker) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyMMdd"
-        
-        FoursquareClient.sharedInstance.dateToSearch = dateFormatter.stringFromDate(datePicker.date)
-    }
-    
     
     var lastPinDropped: Pin? = nil
     var pinToBeAdded: Pin? = nil
